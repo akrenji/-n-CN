@@ -9,7 +9,7 @@ namespace WepSiteBanHang.Controllers
 {
     public class SanPhamController : Controller
     {
-        dbWepSiteBanHangDataContext db = new dbWepSiteBanHangDataContext();
+        dbQuanly db = new dbQuanly();
         // GET: SanPham
         public ActionResult SanPhamStyle1Partial()
         {

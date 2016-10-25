@@ -8,7 +8,7 @@ namespace WepSiteBanHang.Controllers
 {
     public class HomeController : Controller
     {
-        dbWepSiteBanHangDataContext db = new dbWepSiteBanHangDataContext();
+        dbQuanly db = new dbQuanly();
         public ActionResult Index()
         {
             //List LapTop mới nhất
