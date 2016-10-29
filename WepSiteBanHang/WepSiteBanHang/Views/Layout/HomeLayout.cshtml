@@ -22,6 +22,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <!--dropdown-->
     <script src="~/Content/js/jquery.easydropdown.js"></script>
+    <script>
+function AddToCart(MaSP) {
+$.ajax({
+type: 'POST',
+url: '/GioHang/AddToCart',
+data: { id: MaSP },
+success: function (data) {
+$("#Cart_Amount").html(data.ItemAmount);
+}
+});
+}
+    </script>
 </head>
 <body>
     <!--top-header-->
@@ -246,13 +258,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="top" class="callbacks_container">
             <ul class="rslides callbacks callbacks1" id="slider4">
                 <li id="callbacks1_s0" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: left; position: relative; opacity: 1; z-index: 2;" class="callbacks1_on">
-                    <img src="~/Content/images/bnr-1.jpg" alt="">
+                    <img src="~/images/bnr-1.jpg" alt="">
                 </li>
                 <li id="callbacks1_s1" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: none; position: absolute; opacity: 0; z-index: 1;" class="">
-                    <img src="~/Content/images/bnr-2.jpg" alt="">
+                    <img src="~/images/bnr-2.jpg" alt="">
                 </li>
                 <li id="callbacks1_s2" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: none; position: absolute; opacity: 0; z-index: 1;" class="">
-                    <img src="~/Content/images/bnr-3.jpg" alt="">
+                    <img src="~/images/bnr-3.jpg" alt="">
                 </li>
             </ul><a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a><ul class="callbacks_tabs callbacks1_tabs"><li class="callbacks1_s1 callbacks_here"><a href="#" class="callbacks1_s1">1</a></li><li class="callbacks1_s2"><a href="#" class="callbacks1_s2">2</a></li><li class="callbacks1_s3"><a href="#" class="callbacks1_s3">3</a></li></ul>
         </div>
@@ -260,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!--banner-ends-->
     <!--Slider-Starts-Here-->
-    <script src="js/responsiveslides.min.js"></script>
+    <script src="~/Content/js/responsiveslides.min.js"></script>
     <script>
 			    // You can also use "$(window).load(function() {"
 			    $(function () {
@@ -288,7 +300,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="about-top grid-1">
                 <div class="col-md-4 about-left">
                     <figure class="effect-bubba">
-                        <img class="img-responsive" src="~/Content/images/abt-1.jpg" alt="">
+                        <img class="img-responsive" src="~/images/abt-1.jpg" alt="">
                         <figcaption>
                             <h2>Nulla maximus nunc</h2>
                             <p>In sit amet sapien eros Integer dolore magna aliqua</p>
@@ -297,7 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-4 about-left">
                     <figure class="effect-bubba">
-                        <img class="img-responsive" src="~/Content/images/abt-2.jpg" alt="">
+                        <img class="img-responsive" src="~/images/abt-2.jpg" alt="">
                         <figcaption>
                             <h4>Mauris erat augue</h4>
                             <p>In sit amet sapien eros Integer dolore magna aliqua</p>
@@ -306,7 +318,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-4 about-left">
                     <figure class="effect-bubba">
-                        <img class="img-responsive" src="~/Content/images/abt-3.jpg" alt="">
+                        <img class="img-responsive" src="~/images/abt-3.jpg" alt="">
                         <figcaption>
                             <h4>Cras elit mauris</h4>
                             <p>In sit amet sapien eros Integer dolore magna aliqua</p>

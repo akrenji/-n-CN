@@ -13,6 +13,7 @@ namespace WepSiteBanHang.Controllers
         // GET: SanPham
         public ActionResult SanPhamStyle1Partial()
         {
+
             return PartialView();
         }
         public ActionResult XemChiTiet(int ?id)

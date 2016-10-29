@@ -25,11 +25,11 @@ namespace WepSiteBanHang.Models
         public Nullable<bool> TinhTrangGiaoHang { get; set; }
         public Nullable<System.DateTime> NgayGiao { get; set; }
         public Nullable<bool> DaThanhToan { get; set; }
-        public Nullable<int> MaKH { get; set; }
+        public Nullable<int> MaThanhVien { get; set; }
         public Nullable<int> UuDai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual ThanhVien ThanhVien { get; set; }
     }
 }

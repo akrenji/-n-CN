@@ -67,7 +67,6 @@ C:\Users\Admin\Desktop\DACN\WepSiteBanHang\WepSiteBanHang\bin\Microsoft.Owin.Sec
 C:\Users\Admin\Desktop\DACN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Desktop\DACN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.dll
 C:\Users\Admin\Desktop\DACN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.pdb
-F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.csprojResolveAssemblyReference.cache
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.dll
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.pdb
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\bin\roslyn\csc.exe
@@ -136,3 +135,4 @@ F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\bin\Microsoft.Owin.Security.OAu
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\bin\Microsoft.Owin.Security.Google.xml
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\bin\Microsoft.Owin.Security.Twitter.xml
 F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\DACN\DACN\-n-CN\WepSiteBanHang\WepSiteBanHang\obj\Debug\WepSiteBanHang.csprojResolveAssemblyReference.cache
