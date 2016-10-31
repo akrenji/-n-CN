@@ -59,52 +59,28 @@ $("#Cart_Amount").html(data.ItemAmount);
 <body>
     @*<div class="imagezoom-view" style="position: absolute; left: 453.5px; top: 342.167px; width: 480px; height: 395px; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 2147483647; overflow: hidden; border: medium none;"><img src="images/s-1.jpg" style="position: absolute; width: 587.125px; height: 847px; top: -129.429px; left: 5.47118e-14px;"></div><div class="imagezoom-view" style="position: absolute; left: 453.5px; top: 342.167px; width: 480px; height: 395px; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 2147483647; overflow: hidden; border: medium none;"><img src="images/s-1.jpg" style="position: absolute; width: 587.125px; height: 847px; top: -129.429px; left: 5.47118e-14px;"></div><div class="imagezoom-view" style="position: absolute; left: 453.5px; top: 342.167px; width: 480px; height: 395px; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 2147483647; overflow: hidden; border: medium none;"><img src="images/s-3.jpg" style="position: absolute; width: 587.125px; height: 847px; top: -129.429px; left: 5.47118e-14px;"></div>*@
     <!--top-header-->
-    <div class="top-header">
-        <div class="container">
-            <div class="top-header-main">
-                <div class="col-md-6 top-header-left">
-                    <div class="drop">
-                        <div class="box">
-                            <div class="dropdown">
-                                <span class="old">
-                                    <select tabindex="4" class="drop" id="EasyDropDown665EB8">
-                                        <option value="" class="label">Dollar :</option>
-                                        <option value="1">Dollar</option>
-                                        <option value="2">Euro</option>
-                                    </select>
-                                </span><span class="selected">Dollar :</span><span class="carat"></span><div><ul><li>Dollar</li><li>Euro</li></ul></div>
-                            </div>
-                        </div>
-                        <div class="box1">
-                            <div class="dropdown">
-                                <span class="old">
-                                    <select tabindex="4" class="" id="EasyDropDown16BE0E">
-                                        <option value="" class="label">English :</option>
-                                        <option value="1">English</option>
-                                        <option value="2">French</option>
-                                        <option value="3">German</option>
-                                    </select>
-                                </span><span class="selected">English :</span><span class="carat"></span><div><ul><li>English</li><li>French</li><li>German</li></ul></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
-                <div class="col-md-6 top-header-left">
-                    <div class="cart box_1">
-                        <a href="checkout.html">
-                            <div class="total">
-                                <span class="simpleCart_total">$0.00</span>
-                            </div>
-                            <img src="images/cart-1.png" alt="">
-                        </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-                        <div class="clearfix"> </div>
-                    </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
                 </div>
-                <div class="clearfix"></div>
             </div>
         </div>
+        <div class="clearfix"></div>
     </div>
     <!--top-header-->
     <!--start-logo-->

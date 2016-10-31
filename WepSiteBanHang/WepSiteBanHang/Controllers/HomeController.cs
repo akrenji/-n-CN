@@ -29,6 +29,10 @@ namespace WepSiteBanHang.Controllers
             var lstSP = db.SanPhams;
             return PartialView(lstSP);
         }
+        public ActionResult About()
+        {
+            return View();
+        }
 
 
 

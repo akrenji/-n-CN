@@ -42,7 +42,7 @@
           <ScalarProperty Name="TinhTrangGiaoHang" ColumnName="TinhTrangGiaoHang" />
           <ScalarProperty Name="NgayGiao" ColumnName="NgayGiao" />
           <ScalarProperty Name="DaThanhToan" ColumnName="DaThanhToan" />
-          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="MaThanhVien" ColumnName="MaThanhVien" />
           <ScalarProperty Name="UuDai" ColumnName="UuDai" />
         </MappingFragment>
       </EntityTypeMapping>
