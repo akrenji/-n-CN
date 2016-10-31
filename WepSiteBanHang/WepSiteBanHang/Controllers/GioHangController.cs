@@ -58,7 +58,7 @@ namespace WepSiteBanHang.Controllers
             {
                 cartcount += item.Quality;
             }
-            return Json(new { ItemAmount = cartcount });
+            return Json(new { ItemAmount = cartcount});
         }
         public ActionResult Giohang()
         {
@@ -134,6 +134,33 @@ namespace WepSiteBanHang.Controllers
             }
             return PartialView();
         }
-     
+        public ActionResult XoaGiohang(int id)
+        {
+            //Lay gio hang tu Session
+            List<CartItem> gh = (List<CartItem>)Session["ShoppingCart"];
+            //Kiem tra sach da co trong Session["Giohang"]
+            CartItem sp = gh.SingleOrDefault(n => n.productOrder.MaSP == id);
+            //Neu ton tai thi cho sua Soluong
+            if (sp != null)
+            {
+                gh.RemoveAll(n => n.productOrder.MaSP == id);
+                return RedirectToAction("GioHang");
+
+            }
+            if (gh.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("GioHang");
+        }
+        //Xoa tat ca thong tin trong Gio hang
+        public ActionResult XoaTatcaGiohang()
+        {
+            //Lay gio hang tu Session
+            List<CartItem> gh = (List<CartItem>)Session["ShoppingCart"];
+            gh.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

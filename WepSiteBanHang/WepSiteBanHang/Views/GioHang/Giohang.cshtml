@@ -66,7 +66,7 @@
                         @value.ToString("#,##")
                     </td>
                     <td>
-                        <a><h4 style="padding:30px"> Xóa  </h4></a>
+                        <a href="@Url.Action("XoaGiohang","Giohang",new { id = item.productOrder.MaSP } )"><h4 style="padding:30px"> Xóa  </h4></a>
                     </td>
 
 
@@ -81,6 +81,11 @@
             <tr>
                 <td colspan="7" class="text-right">
                     <strong>Tổng Giá : @total.ToString("#,##")</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7" class="text-center" >
+                    <a href="@Url.Action("XoaTatcaGiohang","Giohang")" class="btn btn-group-lg"><strong> Xóa tất Cả </strong></a>
                 </td>
             </tr>
         </tfoot>
