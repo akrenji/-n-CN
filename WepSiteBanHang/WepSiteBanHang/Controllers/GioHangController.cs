@@ -8,7 +8,7 @@ namespace WepSiteBanHang.Controllers
 {
     public class GioHangController : Controller
     {
-        dbQuanly db = new dbQuanly();
+        dbQuanLyEntities db = new dbQuanLyEntities();
 
         public ActionResult Index()
         {

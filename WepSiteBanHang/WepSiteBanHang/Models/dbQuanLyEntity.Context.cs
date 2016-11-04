@@ -13,10 +13,10 @@ namespace WepSiteBanHang.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbQuanly : DbContext
+    public partial class dbQuanLyEntities : DbContext
     {
-        public dbQuanly()
-            : base("name=dbQuanly")
+        public dbQuanLyEntities()
+            : base("name=dbQuanLyEntities")
         {
         }
     
@@ -35,6 +35,7 @@ namespace WepSiteBanHang.Models
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhaSanXuat> NhaSanXuats { get; set; }
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
+        public virtual DbSet<QuanLy> QuanLies { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
     }

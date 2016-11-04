@@ -1,0 +1,41 @@
+﻿@using WepSiteBanHang.Models;
+@model IEnumerable<SanPham>
+
+@{ 
+    //Bước 1:
+    int iDem = 0;    //Đếm số lượng sản phẩm trên trang
+    int iSLSanPhamTrenTrang = 6; // Số lượng sản phẩm trên 1 trang
+    int iTrang = 1; //Số trang
+}
+
+<div class="product-one">
+
+    @foreach (var item in Model)
+    {
+        if (iDem % iSLSanPhamTrenTrang == 0 && iDem != 0)
+        {
+            iTrang++;
+        }
+        iDem++;
+       
+        <div class="col-md-3 product-left simpleCart_shelfItem" style="padding:1px;margin:10px">
+            <div class="product-main simpleCart_shelfItem">
+                <a href="@Url.Action("XemChiTiet", "SanPham", new { id = item.MaSP })" class="mask"><img class="img-responsive zoom-img" src="@Url.Content("~/Content/HinhAnhSP/" + item.HinhAnh)" style="width:150px;height:150px" alt=""></a>
+                <div class="product-bottom">
+                    <h3 style="height:30px;overflow:hidden">@item.TenSP</h3>
+
+                    <h4><a class="item_add" href="#"><i>Giá</i></a> <span class="item_price">@item.DonGia.Value.ToString("#,##")</span></h4>
+                    <a style="margin:1% 30% 0;" onclick="AddToCart('@item.MaSP')" class="btn hvr-radial-in"><strong>Thêm Vào Giỏ</strong></a>
+                </div>
+                <div class="srch">
+                    <span>-50%</span>
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+</div>
+<div class="clearfix"> </div>
+

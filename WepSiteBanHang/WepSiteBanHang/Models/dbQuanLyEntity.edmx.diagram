@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2310d7b946ff4d9a8ede993ed6ab6508" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="dbQuanLyEntity.BinhLuan" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.ChiTietDonDatHang" Width="1.5" PointX="8.25" PointY="5.875" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.ChiTietPhieuNhap" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.DonDatHang" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.KhachHang" Width="1.5" PointX="5.25" PointY="16" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.LoaiSanPham" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.LoaiThanhVien" Width="1.5" PointX="0.75" PointY="16.25" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.NhaCungCap" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.NhaSanXuat" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.PhieuNhap" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.QuanLy" Width="1.5" PointX="7.75" PointY="9.375" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.SanPham" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="dbQuanLyEntity.ThanhVien" Width="1.5" PointX="3" PointY="15.25" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__BinhLuan__MaSP__33D4B598" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__BinhLuan__MaThan__32E0915F" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__ChiTietDo__MaDDH__2F10007B" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__ChiTietDon__MaSP__300424B4" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__ChiTietPhi__MaPN__286302EC" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__ChiTietPhi__MaSP__29572725" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__DonDatHan__MaTha__2C3393D0" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__KhachHang__MaTha__1ED998B2" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__SanPham__MaLoaiS__25869641" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__ThanhVien__MaLoa__1BFD2C07" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__PhieuNhap__MaNCC__145C0A3F" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__SanPham__MaNCC__239E4DCF" />
+        <AssociationConnector Association="dbQuanLyEntity.FK__SanPham__MaNSX__24927208" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

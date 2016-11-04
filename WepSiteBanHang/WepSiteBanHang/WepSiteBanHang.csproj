@@ -49,6 +49,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -171,79 +179,90 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Controllers\TrangAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BinhLuan.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ChiTietDonDatHang.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietPhieuNhap.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbQuanly.Context.cs">
+    <Compile Include="Models\dbQuanLyEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbQuanly.Context.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbQuanly.cs">
+    <Compile Include="Models\dbQuanLyEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbQuanly.Designer.cs">
+    <Compile Include="Models\dbQuanLyEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbQuanly.edmx</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DonDatHang.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSanPham.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiThanhVien.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaSanXuat.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuNhap.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLy.cs">
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhVien.cs">
-      <DependentUpon>dbQuanly.tt</DependentUpon>
+      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-table.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\memenu.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker3.css" />
     <Content Include="Content\HinhAnhSP\201403111636180082_0027050_nokia-lumia-625.jpeg" />
     <Content Include="Content\HinhAnhSP\201506120908527366_nokia-lumia-730-chi-tiet.png" />
     <Content Include="Content\HinhAnhSP\201506251155356101_Lumia-540-hot.png" />
@@ -343,6 +362,8 @@
     <Content Include="Content\js\memenu.js" />
     <Content Include="Content\js\responsiveslides.min.js" />
     <Content Include="Content\js\simpleCart.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -473,33 +494,44 @@
     <Content Include="images\search.png" />
     <Content Include="images\star.png" />
     <Content Include="images\tick.png" />
-    <Content Include="Models\dbQuanly.Context.tt">
+    <Content Include="Models\dbQuanLyEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbQuanly.edmx</DependentUpon>
-      <LastGenOutput>dbQuanly.Context.cs</LastGenOutput>
+      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
+      <LastGenOutput>dbQuanLyEntity.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\dbQuanly.tt">
+    <Content Include="Models\dbQuanLyEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbQuanly.edmx</DependentUpon>
-      <LastGenOutput>dbQuanly.cs</LastGenOutput>
+      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
+      <LastGenOutput>dbQuanLyEntity.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\dbQuanly.edmx">
+    <EntityDeploy Include="Models\dbQuanLyEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbQuanly.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbQuanLyEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\dbQuanly.edmx.diagram">
-      <DependentUpon>dbQuanly.edmx</DependentUpon>
+    <Content Include="Models\dbQuanLyEntity.edmx.diagram">
+      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chart-data.js" />
+    <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\easypiechart-data.js" />
+    <Content Include="Scripts\easypiechart.js" />
+    <Content Include="Scripts\html5shiv.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lumino.glyphs.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -541,7 +573,6 @@
     <Content Include="Views\SanPham\SanPhamStyle1Partial.cshtml" />
     <Content Include="Views\Home\MenuPartial.cshtml" />
     <Content Include="Views\Layout\ProductLayout.cshtml" />
-    <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
     <Content Include="Views\KhachHang\DangKy.cshtml" />
     <Content Include="Views\KhachHang\Dangnhap.cshtml" />
@@ -549,10 +580,18 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\Hienkh.cshtml" />
+    <Content Include="Views\TimKiem\KQTimKiemPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPham.cshtml" />
+    <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
+    <Content Include="Views\Shared\LayoutAdmin.cshtml" />
+    <Content Include="Views\TrangAdmin\Index.cshtml" />
+    <Content Include="Views\DangNhap\HienThiTK.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
+    <Folder Include="Views\DangNhapAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

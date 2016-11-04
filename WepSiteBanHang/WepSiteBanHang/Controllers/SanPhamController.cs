@@ -5,11 +5,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WepSiteBanHang.Models;
+using PagedList;
 namespace WepSiteBanHang.Controllers
 {
     public class SanPhamController : Controller
     {
-        dbQuanly db = new dbQuanly();
+        dbQuanLyEntities db = new dbQuanLyEntities();
         // GET: SanPham
         public ActionResult SanPhamStyle1Partial()
         {
@@ -29,20 +30,36 @@ namespace WepSiteBanHang.Controllers
             }
             return View(sp);
         }
-        public ActionResult SanPham(int ? MaLoaiSP, int? MaNSX)
+        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX, int? page)
         {
-            if(MaLoaiSP == null || MaNSX== null)
+            //if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            //{
+            //    return RedirectToAction("Index","Home");
+            //}
+
+            if (MaLoaiSP == null || MaNSX == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           
+            /*Load sản phẩm dựa theo 2 tiêu chí là Mã loại sản phẩm và mã nhà sản xuất (2 trường
+            trong bảng sản phẩm */
             var lstSP = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX);
-            if (lstSP.Count()==0)
+            if (lstSP.Count() == 0)
             {
+                //Thông báo nếu như không có sản phẩm đó
                 return HttpNotFound();
             }
-                return View(lstSP);
+            //Thực hiện chức năng phân trang
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            //Tạo biến thứ 2: Số trang hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            ViewBag.MaNSX = MaNSX;
+            return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
+
+
 
     }
 

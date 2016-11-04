@@ -224,8 +224,11 @@ $("#Cart_Amount").html(data.ItemAmount);
                 </div>*@
                 <div class="col-md-3 header-right">
                     <div class="search-bar">
-                        <input value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" type="text">
-                        <input value="" type="submit">
+                        @using (Html.BeginForm("KQTimKiem","TimKiem"))
+                        {
+                            <input  type="text" name="sTuKhoa" placeholder="Nhập tên sản  phẩm cần tìm"/>
+                            <input value="" type="submit">
+                        }
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -258,18 +261,19 @@ $("#Cart_Amount").html(data.ItemAmount);
 			    $(function () {
 			      // Slideshow 4
 			      $("#slider4").responsiveSlides({
-			        auto: true,
+                                    auto: true,
 			        pager: true,
 			        nav: true,
 			        speed: 500,
-			        namespace: "callbacks",
+
+                    namespace: "callbacks",
 			        before: function () {
 			          $('.events').append("<li>before event fired.</li>");
-			        },
+                            },
 			        after: function () {
 			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
+                            }
+                            });
 
 			    });
     </script>

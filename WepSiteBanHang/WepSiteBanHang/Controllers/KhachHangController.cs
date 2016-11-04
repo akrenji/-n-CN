@@ -8,7 +8,7 @@ namespace WepSiteBanHang.Controllers
 {
     public class KhachHangController : Controller
     {
-         dbQuanly db = new dbQuanly();
+        dbQuanLyEntities db = new dbQuanLyEntities();
         // GET: KhachHang
         public ActionResult Index()
         {
