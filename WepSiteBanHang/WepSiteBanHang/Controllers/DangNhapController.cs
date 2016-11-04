@@ -32,7 +32,7 @@ namespace WepSiteBanHang.Controllers
             {
                 if (String.IsNullOrEmpty(mk))
                 {
-                    ViewData["Loi2"] = "Chưa nhập mật khẩu PASSS";
+                    ViewData["Loi2"] = "Chưa nhập mật khẩu PASSSSS";
                 }
                 else
                 {
