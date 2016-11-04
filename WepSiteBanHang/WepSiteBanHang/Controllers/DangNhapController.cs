@@ -26,7 +26,7 @@ namespace WepSiteBanHang.Controllers
             var mk = collection["password"];
             if (String.IsNullOrEmpty(tk))
             {
-                ViewData["Loi1"] = "Chưa nhập tài khoản";
+                ViewData["Loi1"] = "Chưa nhập tài";
             }
             else
             {
