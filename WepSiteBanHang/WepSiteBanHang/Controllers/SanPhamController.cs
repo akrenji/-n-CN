@@ -58,6 +58,12 @@ namespace WepSiteBanHang.Controllers
             ViewBag.MaNSX = MaNSX;
             return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
+        public ActionResult SanPhamLienQuan(int id)
+        {
+            var sp = db.SanPhams.SingleOrDefault(n=>n.MaSP==id);
+            var loai = db.SanPhams.Where(n=>n.LoaiSanPham.MaLoaiSP==sp.MaLoaiSP).ToList();
+            return PartialView(loai);
+        }
 
 
 

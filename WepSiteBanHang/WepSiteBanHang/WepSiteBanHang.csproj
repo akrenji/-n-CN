@@ -587,6 +587,7 @@
     <Content Include="Views\Shared\LayoutAdmin.cshtml" />
     <Content Include="Views\TrangAdmin\Index.cshtml" />
     <Content Include="Views\DangNhap\HienThiTK.cshtml" />
+    <Content Include="Views\SanPham\SanPhamLienQuan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

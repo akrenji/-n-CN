@@ -2,21 +2,14 @@
 @model IEnumerable<SanPham>
 
 @{ 
-    //Bước 1:
-    int iDem = 0;    //Đếm số lượng sản phẩm trên trang
-    int iSLSanPhamTrenTrang = 6; // Số lượng sản phẩm trên 1 trang
-    int iTrang = 1; //Số trang
+   
 }
 
 <div class="product-one">
 
     @foreach (var item in Model)
     {
-        if (iDem % iSLSanPhamTrenTrang == 0 && iDem != 0)
-        {
-            iTrang++;
-        }
-        iDem++;
+       
        
         <div class="col-md-3 product-left simpleCart_shelfItem" style="padding:1px;margin:10px">
             <div class="product-main simpleCart_shelfItem">
