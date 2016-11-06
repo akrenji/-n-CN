@@ -178,6 +178,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyDonHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyPhieuNhapController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -517,6 +521,20 @@
     <Content Include="Models\dbQuanLyEntity.edmx.diagram">
       <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutAD\AdinLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\TaoMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Xoa.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ChinhSua.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhieuNhap\NhapHang.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhieuNhap\NhapHangDon.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhieuNhap\DSSHetHang.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyDonHang\ChuaGiao.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyDonHang\ChuaThanhToan.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyDonHang\DaGiaoDaThanhToan.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyDonHang\DuyetDonHang.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chart-data.js" />
     <Content Include="Scripts\chart.min.js" />
@@ -591,7 +609,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\DangNhap\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\fonts\" />
+    <Folder Include="Content\LayoutAD\css\" />
+    <Folder Include="Content\LayoutAD\js\" />
     <Folder Include="Views\DangNhapAdmin\" />
   </ItemGroup>
   <ItemGroup>

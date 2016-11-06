@@ -17,11 +17,11 @@
                     <div class="flex-viewport" style="overflow: hidden; position: relative;">
                         <ul class="slides" style="width: 1000%; transition-duration: 0s; transform: translate3d(-304px, 0px, 0px);">
                        
-                            <li data-thumb="@strhttp://@strHost/images/@Model.HinhAnh" style="float: left; display: block; width: 304px;" class="">
-                                <div class="thumb-image"> <img src="~/images/@Model.HinhAnh" data-imagezoom="true" class="img-responsive" alt="" draggable="false"> </div>
+                            <li data-thumb="@strhttp://@strHost/@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" style="float: left; display: block; width: 304px;" class="">
+                                <div class="thumb-image"> <img src="@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" data-imagezoom="true" class="img-responsive" alt="" draggable="false"> </div>
                             </li>
-                            <li data-thumb="@strhttp://@strHost/images/@Model.HinhAnh" style="float: left; display: block; width: 304px;" class="clone" aria-hidden="true">
-                                <div class="thumb-image"> <img src="~/images/@Model.HinhAnh" data-imagezoom="true" class="img-responsive" alt="" draggable="false"> </div>
+                            <li data-thumb="@strhttp://@strHost/@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" style="float: left; display: block; width: 304px;" class="clone" aria-hidden="true">
+                                <div class="thumb-image"> <img src="@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" data-imagezoom="true" class="img-responsive" alt="" draggable="false"> </div>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@
                     </div>
 
                     <h5 class="item_price">Giá : @Model.DonGia.Value.ToString("#,##") VNĐ</h5>
-                    <p>@Model.MoTa</p>
+                    <p>@Html.Raw(Model.MoTa)</p>
                     <div class="available">
                         <ul>
                             <li>
@@ -83,14 +83,12 @@
             <div class="clearfix"> </div>
         </div>
 
-        <div class="tabs">
+        <div class="tabs"  style="background-color:white">
             <ul class="menu_drop">
-                <li class="item1">
+                <li class="item1" style="color:red">
                     <a href="#"><img src="~/images/arrow.png" alt="">CẤU HÌNH</a>
                     <ul style="display: none;">
-                        <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a></li>
-                        <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
-                        <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
+                       @Html.Raw(Model.CauHinh)
                     </ul>
                 </li>
                 <li class="item2">
