@@ -477,6 +477,11 @@
     <Content Include="images\cart-3.png" />
     <Content Include="images\close.png" />
     <Content Include="images\crossword.png" />
+    <Content Include="images\hinh1.png" />
+    <Content Include="images\hinh2.png" />
+    <Content Include="images\hinh3.jpg" />
+    <Content Include="images\hinh4.orig.jpg" />
+    <Content Include="images\hinh5.jpg" />
     <Content Include="images\ipad-mini-retina-16gb-wifi-id25997.jpg" />
     <Content Include="images\menu_icon_3.png" />
     <Content Include="images\nokia-lumia-1020-id21648.jpg" />
