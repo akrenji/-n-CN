@@ -606,6 +606,7 @@
     <Content Include="Views\TrangAdmin\Index.cshtml" />
     <Content Include="Views\DangNhap\HienThiTK.cshtml" />
     <Content Include="Views\SanPham\SanPhamLienQuan.cshtml" />
+    <Content Include="Views\SanPham\SanPhamStyle2Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

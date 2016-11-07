@@ -1,0 +1,19 @@
+﻿@using WepSiteBanHang.Models;
+@model IEnumerable<SanPham>
+
+
+<div class="about-top grid-1">
+    @foreach (var item in Model.Take(3))
+    {
+        <div class="col-md-4 about-left">
+            <figure class="effect-bubba">
+                <img class="img-responsive" src="@Url.Content("~/Content/HinhAnhSP/"+item.HinhAnh)" style="" alt="">
+                <figcaption>
+                    <h2>@item.TenSP</h2>
+                
+                </figcaption>
+            </figure>
+        </div>
+    }
+    <div class="clearfix"></div>
+</div>

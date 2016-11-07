@@ -53,12 +53,12 @@
                     <td>@item.DonGia</td>
                 </tr>
             }
-            @*<tr>
+            <tr>
                     <td align="right" colspan="4">Tổng số lượng: @Model.ChiTietDonDatHangs.Sum(n =>n.SoLuong)sản phẩm</td>
                 </tr>
                 <tr>
                     <td align="right" colspan="4">Tổng tiền: @Model.ChiTietDonDatHangs.Sum(n => n.SanPham.DonGia).Value.ToString("#,##") đồng</td>
-                </tr>*@
+                </tr>
         </table>
         <br /><br />
         <input type="button" value="In đơn hàng" id="btnInDonHang" />
