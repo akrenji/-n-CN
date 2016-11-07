@@ -53,9 +53,11 @@ namespace WepSiteBanHang.Controllers
             //Tạo biến số sản phẩm trên trang
             int PageSize = 6;
             //Tạo biến thứ 2: Số trang hiện tại
+            
             int PageNumber = (page ?? 1);
             ViewBag.MaLoaiSP = MaLoaiSP;
             ViewBag.MaNSX = MaNSX;
+        
             return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
         public ActionResult SanPhamLienQuan(int id)
@@ -65,6 +67,7 @@ namespace WepSiteBanHang.Controllers
             return PartialView(loai);
         }
 
+        
 
 
     }

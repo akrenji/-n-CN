@@ -514,13 +514,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <EntityDeploy Include="Models\dbQuanLyEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbQuanLyEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\dbQuanLyEntity.edmx.diagram">
-      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\LayoutAD\AdinLayout.cshtml" />
@@ -535,6 +528,13 @@
     <Content Include="Areas\Admin\Views\QuanLyDonHang\ChuaThanhToan.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyDonHang\DaGiaoDaThanhToan.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyDonHang\DuyetDonHang.cshtml" />
+    <EntityDeploy Include="Models\dbQuanLyEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbQuanLyEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dbQuanLyEntity.edmx.diagram">
+      <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chart-data.js" />
     <Content Include="Scripts\chart.min.js" />

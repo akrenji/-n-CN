@@ -159,6 +159,7 @@ namespace WepSiteBanHang.Controllers
             //Lay gio hang tu Session
             List<CartItem> gh = (List<CartItem>)Session["ShoppingCart"];
             gh.Clear();
+         
             return RedirectToAction("Index", "Home");
         }
 

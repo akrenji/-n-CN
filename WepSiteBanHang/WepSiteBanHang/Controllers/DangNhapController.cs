@@ -21,7 +21,7 @@ namespace WepSiteBanHang.Controllers
         }
         [HttpPost]
         public ActionResult DangNhap(FormCollection collection)
-        {
+        {   
             var tk = collection["taikhoan"];
             var mk = collection["password"];
             if (String.IsNullOrEmpty(tk))
