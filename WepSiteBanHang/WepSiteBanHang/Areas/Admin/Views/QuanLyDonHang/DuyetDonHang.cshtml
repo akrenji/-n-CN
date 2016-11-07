@@ -7,7 +7,7 @@
 }
 
 
-<h2>Thông tin đơn hàng <font color="#f65e84">@Model.KhachHang.TenKH</font></h2>
+<h2>Thông tin đơn hàng <font color="#f65e84">@Model.ThanhVien.HoTen</font></h2>
 <br /><br />
 
 @using (Html.BeginForm())
@@ -21,8 +21,8 @@
                     <table style="width:100%;">
                         <tr>
                             <td>Mã đơn hàng: <b style="color:red;"> @Model.MaDDH @Html.Hidden("MaDDH", @Model.MaDDH)</b></td>
-                            <td>Mã khách hàng: <b style="color:red;"> @Model.KhachHang.MaKH</b></td>
-                            <td>Tên khách hàng: <b style="color:red;"> @Model.KhachHang.TenKH</b></td>
+                            <td>Mã khách hàng: <b style="color:red;"> @Model.ThanhVien.MaThanhVien</b></td>
+                            <td>Tên khách hàng: <b style="color:red;"> @Model.ThanhVien.HoTen</b></td>
                             <td>Ngày đặt: @Model.NgayDat.Value.ToString("dd/MM/yyyy")</td>
                             <td>Đã thanh toán: @Html.EditorFor(model => model.DaThanhToan)</td>
                             <td>Đã giao: @Html.EditorFor(model => model.TinhTrangGiaoHang)</td>

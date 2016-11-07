@@ -5,6 +5,7 @@
     WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
 }
 @Html.ActionLink("Thêm sản phẩm", "TaoMoi", null, new { @class = "btn btn-success" })
+<br />
 @*Thể hiện dữ liệu thông qua control webgrid*@
 @grid.GetHtml(
     tableStyle: "divTable",
