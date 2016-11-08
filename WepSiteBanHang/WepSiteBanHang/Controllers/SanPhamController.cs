@@ -17,6 +17,11 @@ namespace WepSiteBanHang.Controllers
 
             return PartialView();
         }
+        public ActionResult SanPhamStyle2Partial()
+        {
+
+            return PartialView();
+        }
         public ActionResult XemChiTiet(int ?id)
         {
             if(id==null)

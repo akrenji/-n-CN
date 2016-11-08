@@ -40,6 +40,7 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DonDatHang model = db.DonDatHangs.SingleOrDefault(n => n.MaDDH == id);
+           
             //Kiểm tra đơn hàng có tồn tại không
             if (model == null)
             {
@@ -51,14 +52,18 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult DuyetDonHang(DonDatHang ddh)
+        public ActionResult DuyetDonHang(DonDatHang ddh,ChiTietDonDatHang ct)
         {
             //Truy vấn lấy ra dữ liệu của đơn hàn đó 
             DonDatHang ddhUpdate = db.DonDatHangs.Single(n => n.MaDDH == ddh.MaDDH);
             ddhUpdate.DaThanhToan = ddh.DaThanhToan;
             ddhUpdate.TinhTrangGiaoHang = ddh.TinhTrangGiaoHang;
+            db.DonDatHangs.Add(ddh);
+           
+       
+           
             db.SaveChanges();
-
+           
             //Lấy danh sách chi tiết đơn hàng để hiển thị cho người dùng thấy
             var lstChiTietDH = db.ChiTietDonDatHangs.Where(n => n.MaDDH == ddh.MaDDH);
             ViewBag.ListChiTietDH = lstChiTietDH;

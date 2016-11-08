@@ -49,13 +49,11 @@ $("#Cart_Amount").html(data.ItemAmount);
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                          
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("About", "About", "Home")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                
                             </ul>
                             @Html.Partial("_LoginPartial")
                         </div>
@@ -241,13 +239,13 @@ $("#Cart_Amount").html(data.ItemAmount);
         <div id="top" class="callbacks_container">
             <ul class="rslides callbacks callbacks1" id="slider4">
                 <li id="callbacks1_s0" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: left; position: relative; opacity: 1; z-index: 2;" class="callbacks1_on">
-                    <img src="~/images/bnr-1.jpg" alt="">
+                    <img src="~/images/1.jpg" alt="">
                 </li>
                 <li id="callbacks1_s1" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: none; position: absolute; opacity: 0; z-index: 1;" class="">
-                    <img src="~/images/bnr-2.jpg" alt="">
+                    <img src="~/images/2.jpg" alt="">
                 </li>
                 <li id="callbacks1_s2" style="display: list-item; transition: opacity 500ms ease-in-out 0s; float: none; position: absolute; opacity: 0; z-index: 1;" class="">
-                    <img src="~/images/bnr-3.jpg" alt="">
+                    <img src="~/images/3.jpg" alt="">
                 </li>
             </ul><a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a><ul class="callbacks_tabs callbacks1_tabs"><li class="callbacks1_s1 callbacks_here"><a href="#" class="callbacks1_s1">1</a></li><li class="callbacks1_s2"><a href="#" class="callbacks1_s2">2</a></li><li class="callbacks1_s3"><a href="#" class="callbacks1_s3">3</a></li></ul>
         </div>
@@ -281,7 +279,7 @@ $("#Cart_Amount").html(data.ItemAmount);
     <!--about-starts-->
     <div class="about">
         <div class="container">
-            <div class="about-top grid-1">
+            @*<div class="about-top grid-1">
                 <div class="col-md-4 about-left">
                     <figure class="effect-bubba">
                         <img class="img-responsive" src="~/images/abt-1.jpg" alt="">
@@ -310,7 +308,7 @@ $("#Cart_Amount").html(data.ItemAmount);
                     </figure>
                 </div>
                 <div class="clearfix"></div>
-            </div>
+            </div>*@
         </div>
     </div>
     <!--about-end-->
