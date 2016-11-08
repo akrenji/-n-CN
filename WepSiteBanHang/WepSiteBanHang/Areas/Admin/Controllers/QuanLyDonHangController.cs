@@ -52,21 +52,30 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult DuyetDonHang(DonDatHang ddh,ChiTietDonDatHang ct)
+        public ActionResult DuyetDonHang(DonDatHang ddh,int? id)
         {
             //Truy vấn lấy ra dữ liệu của đơn hàn đó 
-            DonDatHang ddhUpdate = db.DonDatHangs.Single(n => n.MaDDH == ddh.MaDDH);
+            DonDatHang ddhUpdate = db.DonDatHangs.Single(n => n.MaDDH == id);
             ddhUpdate.DaThanhToan = ddh.DaThanhToan;
             ddhUpdate.TinhTrangGiaoHang = ddh.TinhTrangGiaoHang;
-            db.DonDatHangs.Add(ddh);
-           
-       
-           
+            UpdateModel(ddhUpdate);
             db.SaveChanges();
-           
+         
             //Lấy danh sách chi tiết đơn hàng để hiển thị cho người dùng thấy
             var lstChiTietDH = db.ChiTietDonDatHangs.Where(n => n.MaDDH == ddh.MaDDH);
             ViewBag.ListChiTietDH = lstChiTietDH;
+            var lst = db.ChiTietDonDatHangs.Where(n => n.MaDDH == ddh.MaDDH).ToList();
+            foreach (var item in lst)
+            {
+                if (ddhUpdate.DaThanhToan == true)
+                {
+
+                    SanPham sp = db.SanPhams.Single(n => n.MaSP == item.MaSP);
+                    sp.SoLuongTon = sp.SoLuongTon - item.SoLuong;
+                    UpdateModel(sp);
+                    db.SaveChanges();
+                }
+            }
             //Gửi khách hàng 1 mail để xác nhận việc thanh toán 
             GuiEmail("Xác đơn hàng ", "duykhanhkontum123@gmail.com", "ksshop.com.vn@gmail.com", "google123456", "Đơn hàng của bạn đã được đặt thành công!");
             return View(ddhUpdate);

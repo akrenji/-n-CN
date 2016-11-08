@@ -12,12 +12,13 @@
 
 <div class="row">
     <div class="col-md-3">
-        <div class="imgSP">
-            <img src="@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" />
+        <div class="imgSP" style="float:left" >
+            <img  style="float:left" src="@Url.Content("~/Content/HinhAnhSP/"+Model.HinhAnh)" />
         </div>
+        <div class="clear"></div>
     </div>
     <div class="col-md-9">
-        <div class="ttSP">
+        <div class="ttSP" style="float:right;margin-right:10%">
             <h3>Hãng sản xuất: @Model.NhaSanXuat.TenNSX</h3>
             <h3>Loại sản phẩm: @Model.LoaiSanPham.TenLoai</h3>
             <h3>Số lượng tồn: @Model.SoLuongTon</h3>

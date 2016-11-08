@@ -19,7 +19,7 @@
 @*Dùng control Webgrid thể hiện dữ liệu model là danh sách các đơn đặt hàng được
     truy vấn theo điều kiện từ controller*@
 @grid.GetHtml(
-    tableStyle: "divTable",
+    tableStyle: "table table-striped table-bordered table-hover divTable",
     headerStyle: "gridHead",
     footerStyle: "gridFooter",
     rowStyle: "gridRow",
@@ -32,7 +32,7 @@
         grid.Column("DaThanhToan", header: "Đã thanh toán"),
         grid.Column("UuDai", header: "Ưu đãi"),
 
-    grid.Column(format: p => @Html.ActionLink("Duyệt đơn hàng", "DuyetDonHang", new { id = p.MaDDH }, new { @target = "_blank" }))
+    grid.Column(format: p => @Html.ActionLink("Duyệt đơn hàng", "DuyetDonHang", new { id = p.MaDDH }, new { @target = "_blank" ,@class = "btn btn-info"}))
 
         ))
 
@@ -42,8 +42,8 @@
     }
 
     .divTable {
-        width: 100%;
         border: 1px solid #999999;
+        text-align:center;
     }
 
         .divTable td {
@@ -51,7 +51,8 @@
         }
 
     .gridHead {
-        background-color: Green;
+        text-align:center;
+          background-color:forestgreen;
     }
 
         .gridHead > th > a {

@@ -10,41 +10,41 @@
 <br /><br />
 @*Thể hiện dữ liệu thông qua control webGrid*@
 @grid.GetHtml(
-    tableStyle: "divTable",
-    headerStyle: "gridHead",
-    footerStyle: "gridFooter",
+    tableStyle: "table table-striped table-bordered table-hover divTable",
+    headerStyle: "gridHead ",
+    footerStyle: "gridFooter ",
     rowStyle: "gridRow",
     alternatingRowStyle: "gridAltRow",
     columns: grid.Columns(
     grid.Column("MaSP", "Mã sản phẩm"),
     grid.Column("TenSP", "Tên SP"),
     grid.Column("HinhAnh", "Hình ảnh", format: p => @Html.Raw("<img width=\"150\" height=\"50\" src=\"../Content/HinhAnhSP/" + p.HinhAnh + "\">")),
-    grid.Column(format: p => @Html.ActionLink("Nhập hàng", "NhapHangDon", new { id = p.MaSP }, new { @target = "_blank" }))
+    grid.Column(format: p => @Html.ActionLink("Nhập hàng", "NhapHangDon", new { id = p.MaSP  }, new { @target = "_blank" , @class = "btn btn-danger" }))
 
     ))
 
 
 @*Css cho từng Style của table*@
 <style>
-    .divTable {
-        width: 100%;
-        border: 1px solid #999999;
+    .divTable{
+       text-align:center;
     }
 
         .divTable td {
             border: 1px solid #999999;
+
         }
 
     .gridHead {
-        background-color: Green;
+          text-align:center;
+          background-color:forestgreen;
     }
 
-        .gridHead > th > a {
-            color: #fff;
-        }
+  
 
     .gridFooter {
         font-weight: bold;
+        text-align:center;
     }
     /*.gridRow {
         color:#fff;
