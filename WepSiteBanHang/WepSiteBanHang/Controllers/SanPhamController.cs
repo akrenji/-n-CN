@@ -24,9 +24,16 @@ namespace WepSiteBanHang.Controllers
         }
         public ActionResult XemChiTiet(int ?id)
         {
-            if(id==null)
+            SanPham s = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
+            if (id==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else
+            {
+                s.LuotXem++;
+                UpdateModel(s);
+                db.SaveChanges();
             }
             SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id && n.DaXoa==false);
             if(sp==null)
