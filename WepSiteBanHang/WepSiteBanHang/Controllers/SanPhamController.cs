@@ -78,10 +78,38 @@ namespace WepSiteBanHang.Controllers
             var loai = db.SanPhams.Where(n=>n.LoaiSanPham.MaLoaiSP==sp.MaLoaiSP).ToList();
             return PartialView(loai);
         }
-
-        
-
-
+        public ActionResult T10Theodoi()
+        {
+            var sp = db.SanPhams.OrderByDescending(n => n.LuotXem);
+            return PartialView(sp);
+        }
+          protected void SendMail()
+        {
+            ThanhVien t = (ThanhVien)Session["Thanhvien"];
+            var tv = db.ThanhViens.Single(n => n.MaThanhVien == t.MaThanhVien);
+            // Email Address from where you send the mail
+            var fromAddress = "sulo2020@yahoo.com.vn";
+            // any address where the email will be sending
+            var toAddress = tv.Email;
+            //Password of your Email address
+            const string fromPassword = "7418495869io";
+            // Passing the values and make a email formate to display
+            string subject = "Đơn hàng từ công ty Luxuxy";
+            string body = "From: Đơn hàng";
+            // smtp settings
+            var smtp = new System.Net.Mail.SmtpClient();
+            {
+                smtp.Host = "mail.tenmiencuaban.comm";
+                smtp.Port = 25;
+                smtp.EnableSsl = false;
+                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(fromAddress, fromPassword);
+                smtp.Timeout = 20000;
+            }
+            // Passing values to smtp object
+            smtp.Send(fromAddress, toAddress, subject, body);
+           
+        }
     }
 
 

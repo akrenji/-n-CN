@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WepSiteBanHang.Models;
@@ -117,6 +118,7 @@ namespace WepSiteBanHang.Controllers
                 ctdh.DonGia = (decimal)item.productOrder.DonGia;
                 db.ChiTietDonDatHangs.Add(ctdh);
             }
+            SendMail();
             db.SaveChanges();
             Session["ShoppingCart"] = null;
             return RedirectToAction("Xacnhandonhang", "Giohang");
@@ -161,6 +163,42 @@ namespace WepSiteBanHang.Controllers
             gh.Clear();
          
             return RedirectToAction("Index", "Home");
+        }
+        protected void SendMail()
+        {
+            ThanhVien t = (ThanhVien)Session["Thanhvien"];
+            var tv = db.ThanhViens.Single(n => n.MaThanhVien == t.MaThanhVien);
+            // Email Address from where you send the mail
+            var fromAddress = "sulo42229@gmail.com";
+            // any address where the email will be sending
+            var toAddress = tv.Email;
+            //Password of your Email address
+            const string fromPassword = "nhan2066";
+            // Passing the values and make a email formate to display
+            string subject = "Đơn hàng từ công ty Luxuxy";
+            string body = "From: Đơn hàng Của " + tv.HoTen +"\n" ;
+            List<CartItem> gh = (List<CartItem>)Session["ShoppingCart"];
+            foreach(var item in gh)
+            { 
+            body += "Sản Phẩm  :" + item.productOrder.TenSP + "\n";
+            body += "Số Lượng  :" + item.Quality + "\n";
+            body += "Giá :" + item.productOrder.DonGia + "\n";
+            }
+            body += "Chúng tôi sẽ gửi hàng 1 cách sớm nhất cho bạn";
+            // smtp settings
+            var smtp = new System.Net.Mail.SmtpClient();
+            {
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(fromAddress,fromPassword);
+                smtp.Timeout = 20000;
+            }
+            // Passing values to smtp object
+            smtp.Send(fromAddress,toAddress,subject,body);
+            
+
         }
 
     }

@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44351</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -246,6 +246,7 @@
     <Compile Include="Models\QuanLy.cs">
       <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RecaptchaResult.cs" />
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
@@ -613,6 +614,7 @@
     <Content Include="Views\DangNhap\HienThiTK.cshtml" />
     <Content Include="Views\SanPham\SanPhamLienQuan.cshtml" />
     <Content Include="Views\SanPham\SanPhamStyle2Partial.cshtml" />
+    <Content Include="Views\SanPham\T10Theodoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

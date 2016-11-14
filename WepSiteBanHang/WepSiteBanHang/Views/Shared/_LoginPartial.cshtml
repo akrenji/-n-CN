@@ -31,14 +31,25 @@
         }
         else
         {
+
             <li>
-                 <a href="#">Chào @tv.HoTen</a>
+                <a href="#" >Chào @tv.HoTen</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Thoattk","KhachHang")">Thoát</a>
             </li>
         }
+
         <a href="@Url.Action("Giohang","Giohang")" style="text-decoration:none" >
             <img  height="50" width="50" src="~/images/menu_icon_3.png" />
             <span class="badge" id="Cart_Amount">@ViewBag.count</span> <span class="badge"> Sản Phẩm</span>
         </a>
 
     </ul>
+<script>
+$(document).ready(function(){
+    $(".dropdown-toggle").dropdown();
+});
+</script>
 

@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WepSiteBanHang.Models;
+using System.Net;
+using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Text;
+
 namespace WepSiteBanHang.Controllers
 {
     public class KhachHangController : Controller
@@ -14,30 +19,71 @@ namespace WepSiteBanHang.Controllers
         {
             return View();
         }
+        [HttpPost]
+        private bool IsValidRecaptcha(string recaptcha)
+        {
+            if (string.IsNullOrEmpty(recaptcha))
+            {
+                return false;
+            }
+            var secretKey = "6LcA1wsUAAAAALcZIOvG5WltgIjqaf-nkLJCypnv";//Mã bí mật
+            string remoteIp = Request.ServerVariables["REMOTE_ADDR"];
+            string myParameters = String.Format("secret={0}&response={1}&remoteip={2}", secretKey, recaptcha, remoteIp);
+            RecaptchaResult captchaResult;
+            using (var wc = new WebClient())
+            {
+                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                var json = wc.UploadString("https://www.google.com/recaptcha/api/siteverify", myParameters);
+                var js = new DataContractJsonSerializer(typeof(RecaptchaResult));
+                var ms = new MemoryStream(Encoding.ASCII.GetBytes(json));
+                captchaResult = js.ReadObject(ms) as RecaptchaResult;
+                if (captchaResult != null && captchaResult.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
         [HttpGet]
         public ActionResult DangKy()
         {
             return PartialView();
 
         }
+
+
         [HttpPost]
         public ActionResult Dangky(FormCollection col, ThanhVien tv)
         {
-            var ten = col["Username"];
-            var matkhau = col["Password"];
-            var Email = col["Email"];
-            var dt = col["Phone"];
-            var hoten = col["hoten"];
-            var diachi = col["DiaChi"];
-            tv.TaiKhoan = ten;
-            tv.MatKhau = matkhau;
-            tv.Email = Email;
-            tv.SoDienThoai = dt;
-            tv.HoTen = hoten;
-            tv.DiaChi = diachi;
-            db.ThanhViens.Add(tv);
-            db.SaveChanges();
-            return this.DangKy();
+            if (IsValidRecaptcha(Request["g-recaptcha-response"]))
+            {
+                var ten = col["Username"];
+                var matkhau = col["Password"];
+                var Email = col["Email"];
+                var dt = col["Phone"];
+                var hoten = col["hoten"];
+                var diachi = col["DiaChi"];
+                tv.TaiKhoan = ten;
+                tv.MatKhau = matkhau;
+                tv.Email = Email;
+                tv.SoDienThoai = dt;
+                tv.HoTen = hoten;
+                tv.DiaChi = diachi;
+                db.ThanhViens.Add(tv);
+                db.SaveChanges();
+                return this.DangKy();
+
+            }
+            else
+            {
+                ViewBag.Status = "Không hợp lệ";
+                return View();
+            }
+          
+
         }
         [HttpGet]
         public ActionResult Dangnhap()
@@ -77,6 +123,11 @@ namespace WepSiteBanHang.Controllers
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
             return View();
+        }
+        public ActionResult Thoattk()
+        {
+            Session["Thanhvien"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

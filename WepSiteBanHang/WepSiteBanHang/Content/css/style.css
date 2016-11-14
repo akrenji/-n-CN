@@ -3221,3 +3221,43 @@ ul.tag-men {
   -webkit-transform: scale(0);
   transform: scale(0);
 }
+/***haha**/
+.product-right:hover img.zoom-img{
+    -webkit-transform: scale(1.05);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 700ms;
+    -moz-transform: scale(1.05);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 700ms;
+    overflow: hidden;
+	cursor:pointer;
+}
+.content-right{
+    margin:0% 0 0% 0%;
+    width:22%;
+    height:auto;
+    display:inline-block;
+
+}
+.test{
+    background:#73B6E1;
+    width:100%;
+    border-top-left-radius:100%;
+    border-bottom-left-radius:100%;
+    border-bottom-right-radius:100%;
+    border-top-right-radius:100%;
+    margin:0% 0% 10% 0%;
+     text-align:center;
+     height:14%;
+     padding:4px;
+
+
+}
+.test h3{
+    color:#fff;
+    font-weight:bold;
+
+}
+.sp{
+    border: 1px solid #ECEAEA
+}
