@@ -116,6 +116,7 @@ namespace WepSiteBanHang.Controllers
                 ctdh.SoLuong = item.Quality;
                 ctdh.DonGia = (decimal)item.productOrder.DonGia;
                 db.ChiTietDonDatHangs.Add(ctdh);
+                ctdh.TenSP = item.productOrder.TenSP;
             }
             db.SaveChanges();
             Session["ShoppingCart"] = null;
@@ -161,6 +162,10 @@ namespace WepSiteBanHang.Controllers
             gh.Clear();
          
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
         }
 
     }
