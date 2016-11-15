@@ -5,8 +5,7 @@
     Layout = "~/Views/Layout/ProductLayout.cshtml";
     string strHost = HttpContext.Current.Request.Url.Authority;
     string strhttp = HttpContext.Current.Request.Url.Scheme; // lấy toàn bộ địa chỉ web bao gồm cả http://...
-    int a = (int)Session["So_luot_truy_cap"];
-    int b = (int)Session["So_nguoi_online"];
+
 
 }
 
@@ -47,15 +46,11 @@
                     <h2>@Model.TenSP</h2>
                     <div class="star-on">
                         <ul class="star-footer">
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
+                            <a href="#"><i> Lượt xem : <span style="font-weight:bold"> @Model.LuotXem </span></i></a>
+                           
                         </ul>
                         <div class="review">
-                            <a href="#">@Model.LuotXem @a @b</a>
-
+                 
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -78,7 +73,7 @@
                         </ul>
                     </div>
                   
-                    <a style="margin:1% 30% 0;" onclick="AddToCart('@Model.MaSP')" class="btn hvr-radial-in"><strong>Thêm Vào Giỏ</strong></a>
+                    <a style="margin:1% 30% 0;" onclick="AddToCart('@Model.MaSP')" class="btn hvr-radial-in"><strong style="font-size:30px">Thêm Vào Giỏ</strong></a>
 
                 </div>
             </div>
