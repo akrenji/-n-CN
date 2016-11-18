@@ -21,40 +21,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <!--dropdown-->
     <script src="~/Content/js/jquery.easydropdown.js"></script>
+    <link href="~/Content/css/w3.css" rel="stylesheet" />
     <script type="text/javascript">
-	$(function() {
+        $(function() {
 
-	    var menu_ul = $('.menu_drop > li > ul'),
-	           menu_a  = $('.menu_drop > li > a');
+            var menu_ul = $('.menu_drop > li > ul'),
+                   menu_a  = $('.menu_drop > li > a');
 
-	    menu_ul.hide();
+            menu_ul.hide();
 
-	    menu_a.click(function(e) {
-	        e.preventDefault();
-	        if(!$(this).hasClass('active')) {
-	            menu_a.removeClass('active');
-	            menu_ul.filter(':visible').slideUp('normal');
-	            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-	        } else {
-	            $(this).removeClass('active');
-	            $(this).next().stop(true,true).slideUp('normal');
-	        }
-	    });
+            menu_a.click(function(e) {
+                e.preventDefault();
+                if(!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true,true).slideUp('normal');
+                }
+            });
 
-	});
+        });
     </script>
     <script>
-function AddToCart(MaSP) {
-$.ajax({
-type: 'POST',
-url: '/GioHang/AddToCart',
-data: { id: MaSP },
-success: function (data) {
-$("#Cart_Amount").html(data.ItemAmount);
-}
-});
-}
+        function AddToCart(MaSP) {
+            $.ajax({
+                type: 'POST',
+                url: '/GioHang/AddToCart',
+                data: { id: MaSP },
+                success: function (data) {
+                    $("#Cart_Amount").html(data.ItemAmount);
+                }
+            });
+        }
     </script>
+
+    <script>
+        $(function(){
+            $("body").append($("<div></div>").attr("id", "progress"));
+            $("#progress").width((50 + Math.random() * 30) + "%");
+        });
+        $(window).load(function() {
+            $("#progress").width("101%").delay(300).fadeOut(400);
+        });
+    </script>
+
 </head>
 <body>
     @Scripts.Render("~/bundles/bootstrap")
@@ -71,19 +83,18 @@ $("#Cart_Amount").html(data.ItemAmount);
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                   
-                    </ul>
+                    <ul class="nav navbar-nav"></ul>
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
+            <div id="progress"></div>
         </div>
         <div class="clearfix"></div>
     </div>
     <!--top-header-->
     <!--start-logo-->
-    <div class="logo" >
-        
+    <div class="logo">
+
         <a href="index.html"><h1>Luxury Watches</h1></a>
     </div>
     <!--start-logo-->
@@ -93,159 +104,159 @@ $("#Cart_Amount").html(data.ItemAmount);
             <div class="header">
                 @Html.Action("MenuPartial", "Home")
                 @*<div class="col-md-9 header-left">
-                    <div class="top-nav">
-                        <ul class="memenu skyblue">
-                            <li class="showhide" style="display: none;"><span class="title">MENU</span><span class="icon1"></span><span class="icon2"></span></li>
-                            <li class="active" style=""><a href="index.html">Home</a></li>
-                            <li class="grid" style="">
-                                <a href="#">Men</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="grid" style="">
-                                <a href="#">Women</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
+                        <div class="top-nav">
+                            <ul class="memenu skyblue">
+                                <li class="showhide" style="display: none;"><span class="title">MENU</span><span class="icon1"></span><span class="icon2"></span></li>
+                                <li class="active" style=""><a href="index.html">Home</a></li>
+                                <li class="grid" style="">
+                                    <a href="#">Men</a>
+                                    <div class="mepanel">
+                                        <div class="row">
+                                            <div class="col1 me-one">
+                                                <h4>Shop</h4>
+                                                <ul>
+                                                    <li><a href="products.html">New Arrivals</a></li>
+                                                    <li><a href="products.html">Blazers</a></li>
+                                                    <li><a href="products.html">Swem Wear</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Handbags</a></li>
+                                                    <li><a href="products.html">T-Shirts</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">My Shopping Bag</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Style Zone</h4>
+                                                <ul>
+                                                    <li><a href="products.html">Shoes</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">Brands</a></li>
+                                                    <li><a href="products.html">Coats</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Trousers</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Popular Brands</h4>
+                                                <ul>
+                                                    <li><a href="products.html">499 Store</a></li>
+                                                    <li><a href="products.html">Fastrack</a></li>
+                                                    <li><a href="products.html">Casio</a></li>
+                                                    <li><a href="products.html">Fossil</a></li>
+                                                    <li><a href="products.html">Maxima</a></li>
+                                                    <li><a href="products.html">Timex</a></li>
+                                                    <li><a href="products.html">TomTom</a></li>
+                                                    <li><a href="products.html">Titan</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="grid" style="">
-                                <a href="#">Kids</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
+                                </li>
+                                <li class="grid" style="">
+                                    <a href="#">Women</a>
+                                    <div class="mepanel">
+                                        <div class="row">
+                                            <div class="col1 me-one">
+                                                <h4>Shop</h4>
+                                                <ul>
+                                                    <li><a href="products.html">New Arrivals</a></li>
+                                                    <li><a href="products.html">Blazers</a></li>
+                                                    <li><a href="products.html">Swem Wear</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Handbags</a></li>
+                                                    <li><a href="products.html">T-Shirts</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">My Shopping Bag</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Style Zone</h4>
+                                                <ul>
+                                                    <li><a href="products.html">Shoes</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">Brands</a></li>
+                                                    <li><a href="products.html">Coats</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Trousers</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Popular Brands</h4>
+                                                <ul>
+                                                    <li><a href="products.html">499 Store</a></li>
+                                                    <li><a href="products.html">Fastrack</a></li>
+                                                    <li><a href="products.html">Casio</a></li>
+                                                    <li><a href="products.html">Fossil</a></li>
+                                                    <li><a href="products.html">Maxima</a></li>
+                                                    <li><a href="products.html">Timex</a></li>
+                                                    <li><a href="products.html">TomTom</a></li>
+                                                    <li><a href="products.html">Titan</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="grid" style="">
-                                <a href="typo.html">Blog</a>
-                            </li>
-                            <li class="grid" style="">
-                                <a href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>*@
+                                </li>
+                                <li class="grid" style="">
+                                    <a href="#">Kids</a>
+                                    <div class="mepanel">
+                                        <div class="row">
+                                            <div class="col1 me-one">
+                                                <h4>Shop</h4>
+                                                <ul>
+                                                    <li><a href="products.html">New Arrivals</a></li>
+                                                    <li><a href="products.html">Blazers</a></li>
+                                                    <li><a href="products.html">Swem Wear</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Handbags</a></li>
+                                                    <li><a href="products.html">T-Shirts</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">My Shopping Bag</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Style Zone</h4>
+                                                <ul>
+                                                    <li><a href="products.html">Shoes</a></li>
+                                                    <li><a href="products.html">Watches</a></li>
+                                                    <li><a href="products.html">Brands</a></li>
+                                                    <li><a href="products.html">Coats</a></li>
+                                                    <li><a href="products.html">Accessories</a></li>
+                                                    <li><a href="products.html">Trousers</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col1 me-one">
+                                                <h4>Popular Brands</h4>
+                                                <ul>
+                                                    <li><a href="products.html">499 Store</a></li>
+                                                    <li><a href="products.html">Fastrack</a></li>
+                                                    <li><a href="products.html">Casio</a></li>
+                                                    <li><a href="products.html">Fossil</a></li>
+                                                    <li><a href="products.html">Maxima</a></li>
+                                                    <li><a href="products.html">Timex</a></li>
+                                                    <li><a href="products.html">TomTom</a></li>
+                                                    <li><a href="products.html">Titan</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid" style="">
+                                    <a href="typo.html">Blog</a>
+                                </li>
+                                <li class="grid" style="">
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>*@
                 <div class="col-md-3 header-right">
                     <div class="search-bar">
-                       @using (Html.BeginForm("KQTimKiem", "TimKiem"))
-                       {
-                        <input type="text" name="sTuKhoa" placeholder="Nhập tên sản  phẩm cần tìm" />
+                        @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+                        {
+                            <input type="text" name="sTuKhoa" placeholder="Nhập tên sản  phẩm cần tìm" />
                             <input value="" type="submit">
-                       }
+                        }
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -269,7 +280,7 @@ $("#Cart_Amount").html(data.ItemAmount);
     <div class="single contact">
         <div class="container">
             <div class="single-main">
-             @RenderBody()
+                @RenderBody()
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -340,21 +351,21 @@ $("#Cart_Amount").html(data.ItemAmount);
         </div>
     </div>
     <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '2154793004744934',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-  };
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2154793004744934',
+                xfbml      : true,
+                version    : 'v2.8'
+            });
+        };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/vi_VN/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
     <!--footer-end-->
     <style>
@@ -415,11 +426,11 @@ $("#Cart_Amount").html(data.ItemAmount);
     <div id="fb-root">
 
         <script>
-                jQuery(document).ready(function () {
-                    jQuery(".chat_fb").click(function() {
-                        jQuery('.fchat').toggle('slow');
-                    });
+            jQuery(document).ready(function () {
+                jQuery(".chat_fb").click(function() {
+                    jQuery('.fchat').toggle('slow');
                 });
+            });
         </script>
         <div id="cfacebook">
             <a href="javascript:;" class="chat_fb" onclick="return:false;"><i class="fa fa-facebook-square"></i> Phản hồi của bạn</a>

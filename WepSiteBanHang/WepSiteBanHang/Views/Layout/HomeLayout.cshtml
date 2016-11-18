@@ -22,6 +22,8 @@
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <!--dropdown-->
     <script src="~/Content/js/jquery.easydropdown.js"></script>
+    <link href="~/Content/build/loading-bar.min.css" rel="stylesheet" />
+    <script src="~/Content/build/loading-bar.min.js"></script>
     <script>
 function AddToCart(MaSP) {
 $.ajax({
@@ -53,6 +55,37 @@ $("#Cart_Amount").html(data.ItemAmount);
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
     </script>
+    <link href="~/Content/css/w3.css" rel="stylesheet" />
+    <!--Load-->
+    <script>
+$(function(){
+$("body").append($("<div></div>").attr("id", "progress"));
+$("#progress").width((50 + Math.random() * 30) + "%");
+});
+$(window).load(function() {
+$("#progress").width("101%").delay(300).fadeOut(400);
+});
+    </script>
+    <!---Load-->
+    <script>
+function move() {
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    $("body").append($("<div></div>").attr("id", "myBar"));
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width+=5;
+            elem.style.width = width + '%';
+        }
+    }
+    $(window).load(function() {
+        $("#myBar").width("101%").delay(100).fadeOut(400);
+    });
+}
+    </script>
 </head>
 <body>
     
@@ -74,6 +107,10 @@ $("#Cart_Amount").html(data.ItemAmount);
                             @Html.Partial("_LoginPartial")
                         </div>
                     </div>
+                    <div id="progress"></div>
+                    <div class="w3-progress-container" style="height:2px;border-color:white">
+                        <div id="myBar" class="w3-progressbar w3-blue" style="width:0%;" ></div>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
         </div>
@@ -82,6 +119,7 @@ $("#Cart_Amount").html(data.ItemAmount);
     <!--start-logo-->
     <div class="logo">
         <a href="index.html"><h1>Luxury Watches</h1></a>
+        <button class="w3-btn" onclick="move()">Click Me</button>
     </div>
     <!--start-logo-->
     <!--bottom-header-->

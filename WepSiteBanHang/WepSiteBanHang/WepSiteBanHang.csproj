@@ -267,6 +267,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\w3.css" />
     <Content Include="Content\css\memenu.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\datepicker.css" />

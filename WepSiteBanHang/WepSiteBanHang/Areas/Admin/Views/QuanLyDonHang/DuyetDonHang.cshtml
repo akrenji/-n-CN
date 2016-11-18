@@ -11,61 +11,68 @@
 <br /><br />
 
 @using (Html.BeginForm())
-{
-    <div class="ChiTietDonHang table">
-        @{IEnumerable<ChiTietDonDatHang> lstChiTietDH = (IEnumerable<ChiTietDonDatHang>)ViewBag.ListChiTietDH;}
-        <table class="table" id="table">
-            @*Phần thông tin đơn hàng*@
-            <tr>
-                <td colspan="4">
-                    <table style="width:100%;">
-                        <tr>
-                            <td>Mã đơn hàng: <b style="color:red;"> @Model.MaDDH @Html.Hidden("MaDDH", @Model.MaDDH)</b></td>
-                            <td>Mã khách hàng: <b style="color:red;"> @Model.ThanhVien.MaThanhVien</b></td>
-                            <td>Tên khách hàng: <b style="color:red;"> @Model.ThanhVien.HoTen</b></td>
-                            <td>Ngày đặt: @Model.NgayDat.Value.ToString("dd/MM/yyyy")</td>
-                            <td>Đã thanh toán: @Html.EditorFor(model => model.DaThanhToan)</td>
-                            <td>Đã giao: @Html.EditorFor(model => model.TinhTrangGiaoHang)</td>
-                        </tr>
-                    </table>
-
-                </td>
-            </tr>
-
-
-
-            @*Thông tin chi tiết đơn hàng*@
-
-
-            <tr>
-                <td><b>Sản phẩm</b></td>
-                <td><b>Hình ảnh</b></td>
-                <td><b>Số lượng đặt</b></td>
-                <td><b>Đơn giá đặt</b></td>
-            </tr>
-
-            @foreach (var item in lstChiTietDH)
-            {
+{   <div class="table-responsive">
+        <div class="ChiTietDonHang table">
+            @{IEnumerable<ChiTietDonDatHang> lstChiTietDH = (IEnumerable<ChiTietDonDatHang>)ViewBag.ListChiTietDH;}
+            <table class="table table-bordered" id="table">
+                @*Phần thông tin đơn hàng*@
                 <tr>
-                    <td>@item.SanPham.TenSP</td>
-                    <td><img width="150" height="150" src="@Url.Content("~/Content/HinhAnhSP/"+item.SanPham.HinhAnh)" /></td>
-                    <td>@item.SoLuong</td>
-                    <td>@item.DonGia</td>
+                    <td colspan="4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn hàng: <b style="color:red;"> @Model.MaDDH @Html.Hidden("MaDDH", @Model.MaDDH)</b></th>
+                                    <th>Mã khách hàng: <b style="color:red;"> @Model.ThanhVien.MaThanhVien</b></th>
+                                    <th>Tên khách hàng: <b style="color:red;"> @Model.ThanhVien.HoTen</b></th>
+                                    <th>Ngày đặt: @Model.NgayDat.Value.ToString("dd/MM/yyyy")</th>
+                                    <th>Đã thanh toán: @Html.EditorFor(model => model.DaThanhToan)</th>
+                                    <th>Đã giao: @Html.EditorFor(model => model.TinhTrangGiaoHang)</th>
+                                </tr>
+                                </thead>
+                            </table>
+
+                    </td>
                 </tr>
-            }
-            <tr>
-                    <td align="right" colspan="4">Tổng số lượng: @Model.ChiTietDonDatHangs.Sum(n =>n.SoLuong)sản phẩm</td>
+                <</table>
+
+
+                @*Thông tin chi tiết đơn hàng*@
+
+                <table class="table table-striped table-bordered table-hover" style="text-align:center">
+                <thead>
+                <tr >
+                    
+                    <th style="text-align:center"><b>Sản phẩm</b></th>
+                    <th style="text-align:center"><b>Hình ảnh</b></th>
+                    <th style="text-align:center"><b>Số lượng đặt</b></th>
+                    <th style="text-align:center"><b>Đơn giá đặt</b></th>
+                </tr>
+                </thead>
+        
+
+                @foreach (var item in lstChiTietDH)
+                {
+                    <tr>
+                        <td style="text-align:center">@item.SanPham.TenSP</td>
+                        <td width="100"><img width="150" height="150" src="@Url.Content("~/Content/HinhAnhSP/"+item.SanPham.HinhAnh)" /></td>
+                        <td>@item.SoLuong</td>
+                        <td width="300">@item.DonGia</td>
+                    </tr>
+                }
+                <tr>
+                    <td align="right" colspan="4">Tổng số lượng: <span style="font-size:20px;font-weight:bold;color:blue"> @Model.ChiTietDonDatHangs.Sum(n => n.SoLuong) </span> sản phẩm</td>
                 </tr>
                 <tr>
-                    <td align="right" colspan="4">Tổng tiền: @Model.ChiTietDonDatHangs.Sum(n => n.SanPham.DonGia).Value.ToString("#,##") đồng</td>
+                    <td align="right" colspan="4">Tổng tiền:<span style="font-size:20px;font-weight:bold;color:blue"> @Model.ChiTietDonDatHangs.Sum(n => n.SanPham.DonGia).Value.ToString("#,##")  </span> đồng</td>
                 </tr>
-        </table>
-        <br /><br />
-        <input type="button" value="In đơn hàng" id="btnInDonHang" />
-        <input type="submit" value="Lưu đơn hàng" id="btnInDonHang" />
+                 </table>
+
+            <input type="button" class="btn btn-default"  value="In đơn hàng" id="btnInDonHang" />
+            <input type="submit" class="btn btn-danger" value="Lưu đơn hàng" id="btnInDonHang" />
+        </div>
     </div>
-            }
-
+                }
+    
 <script>
 
     $("#btnInDonHang").click(function () {
@@ -85,3 +92,4 @@
     }
 
 </script>
+
