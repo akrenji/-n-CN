@@ -256,9 +256,6 @@
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ThanhVien.cs">
       <DependentUpon>dbQuanLyEntity.tt</DependentUpon>
     </Compile>
@@ -546,6 +543,7 @@
     <Content Include="Areas\Admin\Views\QuanLyDonHang\ChuaThanhToan.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyDonHang\DaGiaoDaThanhToan.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyDonHang\DuyetDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongKe\ThongKeTongDoanhThuThang.cshtml" />
     <EntityDeploy Include="Models\dbQuanLyEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbQuanLyEntity.Designer.cs</LastGenOutput>
@@ -553,7 +551,6 @@
     <Content Include="Models\dbQuanLyEntity.edmx.diagram">
       <DependentUpon>dbQuanLyEntity.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\ThongKe\ThongKeTongDoanhThuThang.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\canvasjs.min.js" />
     <Content Include="Scripts\chart-data.js" />

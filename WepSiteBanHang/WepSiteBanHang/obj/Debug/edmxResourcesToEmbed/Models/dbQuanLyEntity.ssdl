@@ -141,16 +141,6 @@
     <Property Name="MaLoaiSP" Type="int" />
     <Property Name="DaXoa" Type="bit" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="ThanhVien">
     <Key>
       <PropertyRef Name="MaThanhVien" />
@@ -166,7 +156,7 @@
     <Property Name="CauHoi" Type="nvarchar(max)" />
     <Property Name="CauTraLoi" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="FK__BinhLuan__MaSP__33D4B598">
+  <Association Name="FK__BinhLuan__MaSP__3A81B327">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
     <End Role="BinhLuan" Type="Self.BinhLuan" Multiplicity="*" />
     <ReferentialConstraint>
@@ -178,7 +168,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BinhLuan__MaThan__32E0915F">
+  <Association Name="FK__BinhLuan__MaThan__398D8EEE">
     <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
     <End Role="BinhLuan" Type="Self.BinhLuan" Multiplicity="*" />
     <ReferentialConstraint>
@@ -190,7 +180,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChiTietDo__MaDDH__2F10007B">
+  <Association Name="FK__ChiTietDo__MaDDH__4CA06362">
     <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="0..1" />
     <End Role="ChiTietDonDatHang" Type="Self.ChiTietDonDatHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -202,7 +192,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChiTietDon__MaSP__300424B4">
+  <Association Name="FK__ChiTietDon__MaSP__4D94879B">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
     <End Role="ChiTietDonDatHang" Type="Self.ChiTietDonDatHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -214,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChiTietPhi__MaPN__286302EC">
+  <Association Name="FK__ChiTietPhi__MaPN__2F10007B">
     <End Role="PhieuNhap" Type="Self.PhieuNhap" Multiplicity="0..1" />
     <End Role="ChiTietPhieuNhap" Type="Self.ChiTietPhieuNhap" Multiplicity="*" />
     <ReferentialConstraint>
@@ -226,7 +216,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChiTietPhi__MaSP__29572725">
+  <Association Name="FK__ChiTietPhi__MaSP__300424B4">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
     <End Role="ChiTietPhieuNhap" Type="Self.ChiTietPhieuNhap" Multiplicity="*" />
     <ReferentialConstraint>
@@ -238,7 +228,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DonDatHan__MaTha__2C3393D0">
+  <Association Name="FK__DonDatHan__MaTha__49C3F6B7">
     <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
     <End Role="DonDatHang" Type="Self.DonDatHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -250,7 +240,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KhachHang__MaTha__1ED998B2">
+  <Association Name="FK__KhachHang__MaTha__1BFD2C07">
     <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
     <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -274,7 +264,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SanPham__MaLoaiS__25869641">
+  <Association Name="FK__SanPham__MaLoaiS__2C3393D0">
     <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
@@ -286,7 +276,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SanPham__MaNCC__239E4DCF">
+  <Association Name="FK__SanPham__MaNCC__2A4B4B5E">
     <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
@@ -298,7 +288,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SanPham__MaNSX__24927208">
+  <Association Name="FK__SanPham__MaNSX__2B3F6F97">
     <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
@@ -310,7 +300,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ThanhVien__MaLoa__1BFD2C07">
+  <Association Name="FK__ThanhVien__MaLoa__1920BF5C">
     <End Role="LoaiThanhVien" Type="Self.LoaiThanhVien" Multiplicity="0..1" />
     <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="*" />
     <ReferentialConstraint>
@@ -336,37 +326,36 @@
     <EntitySet Name="PhieuNhap" EntityType="Self.PhieuNhap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuanLy" EntityType="Self.QuanLy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThanhVien" EntityType="Self.ThanhVien" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__BinhLuan__MaSP__33D4B598" Association="Self.FK__BinhLuan__MaSP__33D4B598">
+    <AssociationSet Name="FK__BinhLuan__MaSP__3A81B327" Association="Self.FK__BinhLuan__MaSP__3A81B327">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="BinhLuan" EntitySet="BinhLuan" />
     </AssociationSet>
-    <AssociationSet Name="FK__BinhLuan__MaThan__32E0915F" Association="Self.FK__BinhLuan__MaThan__32E0915F">
+    <AssociationSet Name="FK__BinhLuan__MaThan__398D8EEE" Association="Self.FK__BinhLuan__MaThan__398D8EEE">
       <End Role="ThanhVien" EntitySet="ThanhVien" />
       <End Role="BinhLuan" EntitySet="BinhLuan" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietDo__MaDDH__2F10007B" Association="Self.FK__ChiTietDo__MaDDH__2F10007B">
+    <AssociationSet Name="FK__ChiTietDo__MaDDH__4CA06362" Association="Self.FK__ChiTietDo__MaDDH__4CA06362">
       <End Role="DonDatHang" EntitySet="DonDatHang" />
       <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietDon__MaSP__300424B4" Association="Self.FK__ChiTietDon__MaSP__300424B4">
+    <AssociationSet Name="FK__ChiTietDon__MaSP__4D94879B" Association="Self.FK__ChiTietDon__MaSP__4D94879B">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietPhi__MaPN__286302EC" Association="Self.FK__ChiTietPhi__MaPN__286302EC">
+    <AssociationSet Name="FK__ChiTietPhi__MaPN__2F10007B" Association="Self.FK__ChiTietPhi__MaPN__2F10007B">
       <End Role="PhieuNhap" EntitySet="PhieuNhap" />
       <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhap" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietPhi__MaSP__29572725" Association="Self.FK__ChiTietPhi__MaSP__29572725">
+    <AssociationSet Name="FK__ChiTietPhi__MaSP__300424B4" Association="Self.FK__ChiTietPhi__MaSP__300424B4">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhap" />
     </AssociationSet>
-    <AssociationSet Name="FK__DonDatHan__MaTha__2C3393D0" Association="Self.FK__DonDatHan__MaTha__2C3393D0">
+    <AssociationSet Name="FK__DonDatHan__MaTha__49C3F6B7" Association="Self.FK__DonDatHan__MaTha__49C3F6B7">
       <End Role="ThanhVien" EntitySet="ThanhVien" />
       <End Role="DonDatHang" EntitySet="DonDatHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__KhachHang__MaTha__1ED998B2" Association="Self.FK__KhachHang__MaTha__1ED998B2">
+    <AssociationSet Name="FK__KhachHang__MaTha__1BFD2C07" Association="Self.FK__KhachHang__MaTha__1BFD2C07">
       <End Role="ThanhVien" EntitySet="ThanhVien" />
       <End Role="KhachHang" EntitySet="KhachHang" />
     </AssociationSet>
@@ -374,19 +363,19 @@
       <End Role="NhaCungCap" EntitySet="NhaCungCap" />
       <End Role="PhieuNhap" EntitySet="PhieuNhap" />
     </AssociationSet>
-    <AssociationSet Name="FK__SanPham__MaLoaiS__25869641" Association="Self.FK__SanPham__MaLoaiS__25869641">
+    <AssociationSet Name="FK__SanPham__MaLoaiS__2C3393D0" Association="Self.FK__SanPham__MaLoaiS__2C3393D0">
       <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
       <End Role="SanPham" EntitySet="SanPham" />
     </AssociationSet>
-    <AssociationSet Name="FK__SanPham__MaNCC__239E4DCF" Association="Self.FK__SanPham__MaNCC__239E4DCF">
+    <AssociationSet Name="FK__SanPham__MaNCC__2A4B4B5E" Association="Self.FK__SanPham__MaNCC__2A4B4B5E">
       <End Role="NhaCungCap" EntitySet="NhaCungCap" />
       <End Role="SanPham" EntitySet="SanPham" />
     </AssociationSet>
-    <AssociationSet Name="FK__SanPham__MaNSX__24927208" Association="Self.FK__SanPham__MaNSX__24927208">
+    <AssociationSet Name="FK__SanPham__MaNSX__2B3F6F97" Association="Self.FK__SanPham__MaNSX__2B3F6F97">
       <End Role="NhaSanXuat" EntitySet="NhaSanXuat" />
       <End Role="SanPham" EntitySet="SanPham" />
     </AssociationSet>
-    <AssociationSet Name="FK__ThanhVien__MaLoa__1BFD2C07" Association="Self.FK__ThanhVien__MaLoa__1BFD2C07">
+    <AssociationSet Name="FK__ThanhVien__MaLoa__1920BF5C" Association="Self.FK__ThanhVien__MaLoa__1920BF5C">
       <End Role="LoaiThanhVien" EntitySet="LoaiThanhVien" />
       <End Role="ThanhVien" EntitySet="ThanhVien" />
     </AssociationSet>

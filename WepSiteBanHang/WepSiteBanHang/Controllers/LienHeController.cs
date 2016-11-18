@@ -13,9 +13,8 @@ namespace WepSiteBanHang.Controllers
         dbQuanLyEntities db = new dbQuanLyEntities();
         public ActionResult LienHe()
         {
-            var lh = db.LienHes.Single(n => n.TrangThai == true);
-           
-            return View(lh);
+      
+            return View();
         }
         [HttpPost]
         public ActionResult LienHe(FormCollection colection,LienHe lh)

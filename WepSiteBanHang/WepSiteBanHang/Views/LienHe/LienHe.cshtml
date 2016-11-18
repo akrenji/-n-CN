@@ -93,11 +93,10 @@
         <div class="col-md-12">
             <div class="col-md-6">
                 <h2>Thông tin liên hệ</h2>
-                @Html.Raw(Model.ThongTin)
-
+     
                 <br />
                 <h2>Gửi thông tin</h2>
-             <form id="txtform" method="post">
+             <form action="#" id="demo" method="post">
                
                     <div class="form-group">
                         <label>Họ tên</label>
@@ -132,24 +131,24 @@
     </div>
 </div>
 
-
+<script src="~/Scripts/jquery-1.11.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 <script type="text/javascript">
 
  $(document).ready(function() {
 
- //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
-     $("#txtform").validate({
+     $("#demo").validate({
      rules: {
      HOTEN: "required",
      DIENTHOAI: {
       required: true,
-      minlength: 5
+      number: true,
+      maxlength: 11,
      },
      DIACHI: {
      required: true,
-     minlength: 2
+     minlength: 4
      },
      EMAIL: {
      required: true,
@@ -157,14 +156,15 @@
      },
      },
      messages: {
-     HOTEN: "Vui lòng nhập họ",
+     HOTEN: "Vui lòng nhập Họ Tên",
      DIENTHOAI: {
      required: "Vui lòng nhập số điện thoại",
-     minlength: "Số máy quý khách vừa nhập là số không có thực"
+     maxlength: "Số máy quý khách vừa nhập là số không có thực",
+     number:"Không đươc để Kí Hiệu hoặc chữ "
      },
      DIACHI: {
      required: "Vui lòng nhập địa chỉ",
-     minlength: "Địa chỉ ngắn vậy, chém gió ah?"
+     minlength: "Địa chỉ ngắn vậy"
      }, 
      EMAIL: {
      required: "Please provide a password",

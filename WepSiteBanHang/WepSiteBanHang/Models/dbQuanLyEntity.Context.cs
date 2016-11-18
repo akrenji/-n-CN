@@ -38,7 +38,6 @@ namespace WepSiteBanHang.Models
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public virtual DbSet<QuanLy> QuanLies { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
     }
 }
