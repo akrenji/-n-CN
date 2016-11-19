@@ -4,9 +4,8 @@
     Layout = "~/Areas/Admin/Views/LayoutAD/AdinLayout.cshtml";
 }
 <div id="chartContainer"></div>
-<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-@*<script type="text/javascript" src="https://www.google.com/jsapi"></script>*@
 
+<script src="~/Scripts/canvasjs.min.js"></script>
 <script type="text/javascript">
 
     $.getJSON('/Admin/ThongKe/GetReport', function (data) {
