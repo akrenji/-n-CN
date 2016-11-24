@@ -200,6 +200,10 @@ namespace WepSiteBanHang.Controllers
             
 
         }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
+        }
 
     }
 }

@@ -42,7 +42,7 @@
         @Html.HiddenFor(model => model.MaSP)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Tên Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenSP)
                 @Html.ValidationMessageFor(model => model.TenSP)
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Đơn Giá", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DonGia)
                 @Html.ValidationMessageFor(model => model.DonGia)
@@ -58,21 +58,21 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NgayCapNhat, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Ngày Cập Nhật", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NgayCapNhat)
                 @Html.ValidationMessageFor(model => model.NgayCapNhat)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CauHinh, new { @class = "control-label col-md-2" })
+            @Html.Label("Cấu Hình", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <textarea name="CauHinh" class="textarea">@Html.Raw(Model.CauHinh)</textarea>
                 @Html.ValidationMessageFor(model => model.CauHinh)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Mô Tả", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <textarea name="MoTa" class="textarea">@Html.Raw(Model.MoTa)</textarea>
                 @Html.ValidationMessageFor(model => model.MoTa)
@@ -80,17 +80,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Hình Ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="fileUpload" />
              
                 @Html.ValidationMessageFor(model => model.HinhAnh)
-                <img src="@Url.Content("~/Content/HinhAnhSp/"+Model.HinhAnh)"/>
+                <img src="@Url.Content("~/Content/HinhAnhSp/"+Model.HinhAnh)" style="width:150px;height:150px"/>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Số Lượng Tồn", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuongTon)
                 @Html.ValidationMessageFor(model => model.SoLuongTon)
@@ -98,7 +98,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Moi, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Mới", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Moi)
                 @Html.ValidationMessageFor(model => model.Moi)
@@ -106,21 +106,21 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaNCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Nhà Cung Cấp", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @Html.DropDownList("MaNCC", null, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaNSX, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Nhà Sản Xuất", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @Html.DropDownList("MaNSX", null, new { @class = "form-control " })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaLoaiSP, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Loại Sản Phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @Html.DropDownList("MaLoaiSP", null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MaLoaiSP)
