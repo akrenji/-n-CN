@@ -189,25 +189,25 @@ $(document).ready(function (c) {
                 </ul>
                 <ul>
                     <li><a href="#"><i class="setting"></i></a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="@Url.Action("Index","ThongKeSP")">Thống kê sản phẩm bán chạy</a></li>
                 </ul>
             </div>
             <div class="navigation">
                 <h3>Navigation</h3>
                 <ul>
                     <li><a href="#"><i class="dash"></i></a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="@Url.Action("Index", "LoaiSanPhams")">Quản lý loại sản phẩm</a></li>
                 </ul>
                 <ul>
                     <li><a href="#"><i class="mail"></i></a></li>
-                    <li><a href="#">Emails</a></li>
+                    <li><a href="@Url.Action("Index", "NhaSanXuats")">Quản lý thương hiệu</a></li>
                 </ul>
                 <ul>
                     <li><a href="#"><i class="cal"></i></a></li>
-                    <li><a href="#">Calendar</a></li>
+                    <li><a href="@Url.Action("Index", "LienHes")">Liên hệ</a></li>
                 </ul>
                 <ul>
-                    <li><a href="#"><i class="page"></i></a></li>
+                    <li><a href="@Url.Action("Index", "LienHes")">Nhà cung cấp</a></li>
                     <li><a href="#">Pages</a></li>
                 </ul>
             </div>
@@ -433,14 +433,17 @@ $(document).ready(function (c) {
                 </div>*@
             <div class="clearfix"></div>
             <p class="home"><a href="#">Home</a> &gt; <strong> Dashboard</strong></p>
-            <div class="list_of_members">
+            <div class="list_of_members1">
                 <div class="sales">
                     <div class="icon">
                         <i class="dollar"></i>
                     </div>
                     <div class="icon-text">
-                        <h3>15896</h3>
-                        <p>Sales</p>
+                        @{decimal TongDoanhThu = decimal.Parse(ViewBag.TongDoanhThu.ToString());
+
+                        }
+                        <h3> @ViewBag.TongDoanhThu.ToString("#,##")VNĐ</h3>
+                        <p>Tổng doanh thu</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -449,8 +452,8 @@ $(document).ready(function (c) {
                         <i class="user1"></i>
                     </div>
                     <div class="icon-text">
-                        <h3>5356</h3>
-                        <p>New Users</p>
+                        <h3>@ViewBag.TongThanhVien</h3>
+                        <p>Tổng thành viên</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -459,23 +462,41 @@ $(document).ready(function (c) {
                         <i class="order"></i>
                     </div>
                     <div class="icon-text">
-                        <h3>26856</h3>
-                        <p>New Orders</p>
+                        <h3>@ViewBag.TongDDH</h3>
+                        <p>Tổng số hóa đơn</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
+                <div class="visitors">
+                    
+                    <div class="icon-text">
+                        <h3>@ViewBag.SoNguoiTruyCap</h3>
+                        <p>Số người truy cập</p>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clear"></div>
+                <br /><br />
                 <div class="visitors">
                     <div class="icon">
                         <i class="visit"></i>
                     </div>
                     <div class="icon-text">
-                        <h3>85k</h3>
-                        <p>Visits</p>
+                        <h3>@ViewBag.SoLuongNguoiOnline</h3>
+                        <p>OnLine</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
+
+
+
+
+
+
+
             @RenderBody()
             <div class="total-sales">
                 <div class="clearfix"></div>

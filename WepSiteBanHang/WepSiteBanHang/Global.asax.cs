@@ -16,24 +16,30 @@ namespace WepSiteBanHang
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Application["So_luot_truy_cap"] = 0;
-            Application["So_nguoi_online"] = 0;
+            Application["SoNguoiTruyCap"] = 0;
+            Application["SoNguoiDangOnline"] = 0;   
 
 
         }
-        void Session_Start(object sender, EventArgs e)
+        protected void Session_Start()
         {
-            // Tăng giá trị biến Application
-            Application["So_luot_truy_cap"] = (int)Application["So_luot_truy_cap"] + 1;
-            Application["So_nguoi_online"] = (int)Application["So_nguoi_online"] + 1;
-            Session["So_luot_truy_cap"] = (int)Application["So_luot_truy_cap"] ;
-            Session["So_nguoi_online"] = (int)Application["So_nguoi_online"] ;
+            Application.Lock();
+            Application["SoNguoiTruyCap"] = (int)Application["SoNguoiTruyCap"] + 1;
+            Application["SoNguoiDangOnline"] = (int)Application["SoNguoiDangOnline"] + 1;
+            //Application["Online"] = (int)Application["Online"] + 1;
+            Application.UnLock();
         }
         void Session_End(object sender, EventArgs e)
         {
             // Giảm giá trị biến Application
             Session["So_nguoi_online"] = (int)Application["So_nguoi_online"] - 1;
 
+        }
+        protected void Session_End()
+        {
+            Application.Lock();
+            Application["SoNguoiDangOnline"] = (int)Application["SoNguoiDangOnline"] - 1;
+            Application.UnLock();
         }
 
 

@@ -7,7 +7,7 @@
     @foreach (var item in Model.Take(5))
     {
         <a href="@Url.Action("XemChiTiet", "SanPham", new { id=item.MaSP })">
-            <div class="col-lg-10 product-left" style="width:100%;margin:5px;padding:0">
+            <div class="col-lg-10 product-left wow flash" style="width:100%;margin:5px;padding:0">
                 <div class="product-main simpleCart_shelfItem">
                     <a href="@Url.Action("XemChiTiet", "SanPham", new { id=item.MaSP })" class="mask"><img class="img-responsive zoom-img" src="@Url.Content("~/Content/HinhAnhSP/"+item.HinhAnh)" style="width:90px;height:90px" alt=""></a>
                     <div class="product-bottom" style="float:left">

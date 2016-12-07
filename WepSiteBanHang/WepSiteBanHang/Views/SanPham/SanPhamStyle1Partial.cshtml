@@ -11,8 +11,8 @@
 
         @foreach (var item in Model.Take(9))
         {
-            <div class="col-md-3 product-left" style="padding:1px;margin:10px">
-                <div class="product-main simpleCart_shelfItem">
+            <div class="col-md-3 product-left " style="padding:1px;margin:10px">
+                <div class="product-main simpleCart_shelfItem  wow slideInLeft">
                     <a href="@Url.Action("XemChiTiet","SanPham",new { id=item.MaSP})" class="mask"  onclick="move()"><img class="img-responsive zoom-img" src="@Url.Content("~/Content/HinhAnhSP/"+item.HinhAnh)" style="width:150px;height:150px" alt=""></a>
                     <div class="product-bottom">
                         <h3 style="height:30px;overflow:hidden">@item.TenSP</h3>

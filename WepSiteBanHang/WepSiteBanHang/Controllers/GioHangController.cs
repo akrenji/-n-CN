@@ -96,32 +96,43 @@ namespace WepSiteBanHang.Controllers
         [HttpPost]
         public ActionResult DatHang(FormCollection collection)
         {
-            //Them Don hang
             DonDatHang ddh = new DonDatHang();
             ThanhVien kh = (ThanhVien)Session["ThanhVien"];
             List<CartItem> gh = (List<CartItem>)Session["ShoppingCart"];
             ddh.MaThanhVien = kh.MaThanhVien;
+            var ngaydat = DateTime.Now;
             ddh.NgayDat = DateTime.Now;
             var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
             ddh.NgayGiao = DateTime.Parse(ngaygiao);
-            ddh.TinhTrangGiaoHang = false;
-            ddh.DaThanhToan = false;
-            db.DonDatHangs.Add(ddh);
-            db.SaveChanges();
-            //Them chi tiet don hang            
-            foreach (var item in gh)
+            if (ddh.NgayGiao < DateTime.Now)
             {
-                ChiTietDonDatHang ctdh = new ChiTietDonDatHang();
-                ctdh.MaDDH = ddh.MaDDH;
-                ctdh.MaSP = item.productOrder.MaSP;
-                ctdh.SoLuong = item.Quality;
-                ctdh.DonGia = (decimal)item.productOrder.DonGia;
-                db.ChiTietDonDatHangs.Add(ctdh);
+                ViewData["Loi"] = "Ngày Giao hàng không đúng";
+                return View();
+
             }
-            SendMail();
-            db.SaveChanges();
-            Session["ShoppingCart"] = null;
-            return RedirectToAction("Xacnhandonhang", "Giohang");
+            else
+            {
+                ddh.TinhTrangGiaoHang = false;
+                ddh.DaThanhToan = false;
+                db.DonDatHangs.Add(ddh);
+                db.SaveChanges();
+                //Them chi tiet don hang            
+                foreach (var item in gh)
+                {
+                    ChiTietDonDatHang ctdh = new ChiTietDonDatHang();
+                    ctdh.MaDDH = ddh.MaDDH;
+                    ctdh.MaSP = item.productOrder.MaSP;
+                    ctdh.SoLuong = item.Quality;
+                    ctdh.DonGia = (decimal)item.productOrder.DonGia;
+                    db.ChiTietDonDatHangs.Add(ctdh);
+                }
+                SendMail();
+                db.SaveChanges();
+                Session["ShoppingCart"] = null;
+                return RedirectToAction("Xacnhandonhang", "Giohang");
+
+            }
+
         }
         public ActionResult Hienkh()
         {

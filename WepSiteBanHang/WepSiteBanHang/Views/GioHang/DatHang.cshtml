@@ -1,9 +1,12 @@
 ﻿@using WepSiteBanHang.Models;
-@model   List<CartItem>
+@model  List<CartItem>
 @{
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Layout/HomeLayout.cshtml";
 }
+
+
+
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
         <thead>
@@ -47,8 +50,7 @@
                         </td>
                         <td>
 
-                            <img src="~/images/@item.productOrder.HinhAnh" alt="cover page"
-                                 width="210" />
+                            <img src="@Url.Content("~/Content/HinhAnhSP/"+item.productOrder.HinhAnh)" alt="cover page" width="210" />
                         </td>
                         @using (Html.BeginForm("Update", "Giohang", new { id = item.productOrder.MaSP }))
                     {

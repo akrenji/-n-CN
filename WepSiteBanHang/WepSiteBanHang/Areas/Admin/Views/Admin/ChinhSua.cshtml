@@ -1,13 +1,17 @@
 ﻿@model WepSiteBanHang.Models.SanPham
 @{
-    ViewBag.Title = "ChinhSua";
+    ViewBag.Title = "Chỉnh sửa sản phẩm";
     Layout = "~/Areas/Admin/Views/LayoutAD/AdinLayout.cshtml";
 }
 
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+@*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+
+<script src="~/Content/js/jquery-1.12.4.js"></script>
+<script src="~/Content/js/jquery-ui.js"></script>
+
 <script src="~/Content/tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -36,7 +40,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>SanPham</h4>
+        <h4>Chỉnh sửa sản phẩm</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.MaSP)
@@ -58,10 +62,13 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Ngày Cập Nhật", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Ngày Cập nhật", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NgayCapNhat)
-                @Html.ValidationMessageFor(model => model.NgayCapNhat)
+                @if (Model.NgayCapNhat != null)
+                {
+                    @Html.TextBox("NgayCapNhat", Model.NgayCapNhat.Value.ToString("dd/MM/yyyy"), new { id = "datepicker" })
+                    @Html.ValidationMessageFor(model => model.NgayCapNhat)
+                }
             </div>
         </div>
         <div class="form-group">

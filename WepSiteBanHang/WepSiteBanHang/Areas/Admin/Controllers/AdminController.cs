@@ -16,12 +16,30 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View(db.SanPhams.OrderByDescending(n => n.MaSP));
-         
+            
+                ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+                ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+                ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+                ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+                ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
+                return View(db.SanPhams.OrderByDescending(n => n.MaSP));
+
+            
+
+
+
         }
         [HttpGet]
         public ActionResult TaoMoi()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
+            //
             //Load dropdownlist nhà cung cấp và dropdownlist loại SP
             ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
             ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai");
@@ -70,6 +88,12 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult ChinhSua(int? id)
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
             //Lấy sản phẩm cần chỉnh sửa dựa vào id
             if (id == null)
             {
@@ -143,6 +167,11 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         public ActionResult Xoa(int? id)
         {
 
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
             //Lấy sản phẩm cần chỉnh sửa dựa vào id
             if (id == null)
             {
@@ -184,11 +213,25 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
     [HttpGet]
         public ActionResult Login()
         {
+
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
             return View();
         }
        [HttpPost]
         public ActionResult Login(FormCollection collection)
         {
+
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
             var tk = collection["taikhoan"];
             var mk = collection["password"];
             if (String.IsNullOrEmpty(tk))
@@ -218,5 +261,50 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
 
             return RedirectToAction("Index", "Admin");
         }
+        public decimal ThongKeTongDoanhThu()
+        {
+            //Thống kê theo tất cả doanh thu
+            decimal TongDoanhThu = db.ChiTietDonDatHangs.Sum(n => n.SoLuong * n.DonGia).Value;
+            return TongDoanhThu;
+        }
+        public double ThongKeDonHang()
+        {
+            //Dếm đơn đặt hàng
+            double slDDH = db.DonDatHangs.Count();
+            return slDDH;
+        }
+        public double ThongKeThanhVien()
+        {
+            //Dếm đơn đặt hàng
+            double slTV = db.ThanhViens.Count();
+            return slTV;
+        }
+        public decimal ThongKeTongDoanhThuThang(int Thang, int Nam)
+        {
+            //Thống kê theo tất cả doanh thu
+            //List ra những đơn hàng nào có tháng năm tương ứng
+            var lstDDH = db.DonDatHangs.Where(n => n.NgayDat.Value.Month == Thang && n.NgayDat.Value.Year == Nam);
+            decimal TongTien = 0;
+            //Duyệt chi tiết của đơn đặt hàng và lấy tổng tiền  của tất cả sản phẩm thuộc đơn hàng đó
+            foreach (var item in lstDDH)
+            {
+                TongTien += decimal.Parse(item.ChiTietDonDatHangs.Sum(n => n.SoLuong * n.DonGia).Value.ToString());
+            }
+            return TongTien;
+        }
+
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db != null)
+                    db.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
     }
 }

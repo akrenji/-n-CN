@@ -1,9 +1,10 @@
 ﻿@using WepSiteBanHang.Models;
+
 @{
     ViewBag.Title = "Giohang";
     Layout = "~/Views/Layout/ProductLayout.cshtml";
 }
-<h2>Your Shopping Cart</h2>
+<h2>Giỏ hàng của bạn</h2>
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
         <thead>
@@ -43,11 +44,11 @@
                         @item.productOrder.TenSP
                     </td>
                     <td style="margin:100px">
-                        <strong style="color:darksalmon">$ @item.productOrder.DonGia.Value.ToString("#,##") VND </strong> 
+                        <strong style="color:darksalmon"> @item.productOrder.DonGia.Value.ToString("#,##") VND </strong> 
                     </td>
                     <td>
                         
-                        <img src="~/images/@item.productOrder.HinhAnh" alt="cover page"
+                        <img src="@Url.Content("~/Content/HinhAnhSP/"+item.productOrder.HinhAnh)" alt="cover page"
                              width="210" />
                     </td>
                     @using (Html.BeginForm("Update", "Giohang", new { id = item.productOrder.MaSP }))
@@ -55,7 +56,7 @@
                     <td style="text-align:center">
                         <i>
                             <input style="overflow:unset;margin:10px" type="text" value="@item.Quality.ToString("#,##")"  id="Quality" name="Quality" class="text-center" />
-                            <input  style="margin-top:2.5%"  type="submit" value="Update" class="btn btn-warning" id="Update" />
+                            <input  style="margin-top:2.5%"  type="submit" value="Cập nhật" class="btn btn-warning" id="Update" />
                         </i>
                     </td>
                     <td>

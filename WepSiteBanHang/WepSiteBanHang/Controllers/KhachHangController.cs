@@ -82,7 +82,7 @@ namespace WepSiteBanHang.Controllers
                 ViewBag.Status = "Không hợp lệ";
                 return View();
             }
-          
+
 
         }
         [HttpGet]
@@ -116,7 +116,7 @@ namespace WepSiteBanHang.Controllers
                 {
                     // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
                     Session["Thanhvien"] = tv;
-              
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -128,6 +128,43 @@ namespace WepSiteBanHang.Controllers
         {
             Session["Thanhvien"] = null;
             return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public ActionResult Xacnhanemail()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Xacnhanemail(FormCollection collection)
+        {
+            var ten = collection["tentk"];
+            var email = collection["xnemail"];
+            SendMail(ten, email);
+            return RedirectToAction("Index", "Home");
+        }
+        protected void SendMail(string ten, string email)
+        {
+            ThanhVien tv = db.ThanhViens.First(n => n.TaiKhoan == ten && n.Email == email);
+            var fromAddress = "sulo42229@gmail.com";
+            // any address where the email will be sending
+            var toAddress = email.ToString();
+            //Password of your Email address
+            const string fromPassword = "nhan2066";
+            // Passing the values and make a email formate to display
+            string subject = "Bạn đã yêu cầu tìm lại mật khẩu";
+            string body = "Mật khẩu của bạn " + tv.MatKhau + "\n";
+            // smtp settings
+            var smtp = new System.Net.Mail.SmtpClient();
+            {
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(fromAddress, fromPassword);
+                smtp.Timeout = 20000;
+            }
+            // Passing values to smtp object
+            smtp.Send(fromAddress, toAddress, subject, body);
         }
     }
 }

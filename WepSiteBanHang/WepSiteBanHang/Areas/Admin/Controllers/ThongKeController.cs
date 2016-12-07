@@ -13,7 +13,31 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         // GET: Admin/ThongKe
         public ActionResult ThongKeTongDoanhThuThang()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+            //
             return View();
+        }
+        public decimal ThongKeTongDoanhThu()
+        {
+            //Thống kê theo tất cả doanh thu
+            decimal TongDoanhThu = db.ChiTietDonDatHangs.Sum(n => n.SoLuong * n.DonGia).Value;
+            return TongDoanhThu;
+        }
+        public double ThongKeDonHang()
+        {
+            //Dếm đơn đặt hàng
+            double slDDH = db.DonDatHangs.Count();
+            return slDDH;
+        }
+        public double ThongKeThanhVien()
+        {
+            //Dếm đơn đặt hàng
+            double slTV = db.ThanhViens.Count();
+            return slTV;
         }
 
         public ActionResult GetReport()
@@ -54,7 +78,13 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
             }
             return ret;
         }
-        
+        public ActionResult ThongKeNguoiXem()
+        {
+            
+            return View();
+
+        }
+       
 
     }
 }

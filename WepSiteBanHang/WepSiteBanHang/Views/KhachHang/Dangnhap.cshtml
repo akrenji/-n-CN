@@ -5,11 +5,8 @@
 }
 
 <div class="w3l_banner_nav_right">
-
-
-
     <div class="w3_login">
-        <h3>Sign In & Sign Up</h3>
+        <h3>Đăng nhập và Đăng ký tài khoản</h3>
         <div class="w3_login_module">
             <div class="module form-module">
                 <div class="toggle">
@@ -26,7 +23,7 @@
                     </form>
                 </div>
                 @Html.Action("DangKy", "KhachHang")
-                <div class="cta"><a href="#">Forgot your password?</a></div>
+                <div class="cta"><a href="@Url.Action("Xacnhanemail", "KhachHang")">Quên mật khẩu</a></div>
             </div>
         </div>
         <script>

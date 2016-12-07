@@ -14,18 +14,33 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         dbQuanLyEntities db = new dbQuanLyEntities();
         public ActionResult ChuaThanhToan()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
             //Lấy danh sách các đơn hàng Chưa duyệt
             var lst = db.DonDatHangs.Where(n => n.DaThanhToan == false).OrderBy(n => n.NgayDat);
             return View(lst);
         }
         public ActionResult ChuaGiao()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
             //Lấy danh sách đơn hàng chưa giao 
             var lstDSDHCG = db.DonDatHangs.Where(n => n.TinhTrangGiaoHang == false && n.DaThanhToan == true).OrderBy(n => n.NgayGiao);
             return View(lstDSDHCG);
         }
         public ActionResult DaGiaoDaThanhToan()
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
             //Lấy danh sách đơn hàng chưa giao 
             var lstDSDHCG = db.DonDatHangs.Where(n => n.TinhTrangGiaoHang == true && n.DaThanhToan == true);
             return View(lstDSDHCG);
@@ -34,6 +49,11 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult DuyetDonHang(int? id)
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
             //Kiểm tra xem id hợp lệ không
             if (id == null)
             {
@@ -54,6 +74,12 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult DuyetDonHang(DonDatHang ddh,int? id)
         {
+            ViewBag.SoNguoiTruyCap = HttpContext.Application["SoNguoiTruyCap"].ToString();//Số lượng người truy cập từ application đã được tạo
+            ViewBag.SoLuongNguoiOnline = HttpContext.Application["SoNguoiDangOnline"].ToString();//Lấy số lượng người đang truy cập
+            ViewBag.TongDoanhThu = ThongKeTongDoanhThu();//Thống kê tổng doanh thu
+            ViewBag.TongDDH = ThongKeDonHang();//Thống kê dơn hàng
+            ViewBag.TongThanhVien = ThongKeThanhVien();//Thống kê thành viên
+
             //Truy vấn lấy ra dữ liệu của đơn hàn đó 
             DonDatHang ddhUpdate = db.DonDatHangs.Single(n => n.MaDDH == id);
             ddhUpdate.DaThanhToan = ddh.DaThanhToan;
@@ -99,7 +125,24 @@ namespace WepSiteBanHang.Areas.Admin.Controllers
             smtp.Send(mail);   //Gửi mail đi
         }
 
-
+        public decimal ThongKeTongDoanhThu()
+        {
+            //Thống kê theo tất cả doanh thu
+            decimal TongDoanhThu = db.ChiTietDonDatHangs.Sum(n => n.SoLuong * n.DonGia).Value;
+            return TongDoanhThu;
+        }
+        public double ThongKeDonHang()
+        {
+            //Dếm đơn đặt hàng
+            double slDDH = db.DonDatHangs.Count();
+            return slDDH;
+        }
+        public double ThongKeThanhVien()
+        {
+            //Dếm đơn đặt hàng
+            double slTV = db.ThanhViens.Count();
+            return slTV;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
